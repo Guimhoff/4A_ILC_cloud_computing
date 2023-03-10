@@ -23,7 +23,7 @@ Les langages et technologies utilisés sont les suivants :
 
 * Afficher les pious attribués à une personne :
 
-> [GET] /\<user>/pious
+> [GET] /user/\<user>/pious
 
 * Retweeter :
 
@@ -53,20 +53,19 @@ Les langages et technologies utilisés sont les suivants :
 ### Base 1 : utilisateurs
 
 ```none
-clés :  u-\<id-user> valeur : {id, pseudo, date-inscription}
+clés :  u-\<pseudo-user> valeur : {pseudo, date-inscription}
 ```
 
-Correspondance pseudo/id ? Pseudo/password ?
+Correspondance pseudo/password ?
 
 ### Base 2 : pious
 
 ```none
-clés :  p-\<id-piou> valeur : {id, id-quote, text, date, id-user}
+clés :  p-\<id-piou> valeur : {id, id-quote, text, date, pseudo-user}
 ```
 
 ### Base 3 : sujets
 
 ```none
-clés :  s-<id-sujet> valeur : {id, nom}
-        s-<id-sujet>-p valeur : [id-pious]
+clés :  s-<sujet> valeur : [id-pious]
 ```
