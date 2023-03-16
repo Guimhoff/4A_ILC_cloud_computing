@@ -79,3 +79,7 @@ clés :  p-<id-piou> valeur : {id, id-quote, text, date, pseudo-user}
 ```none
 clés :  s-<sujet> valeur : [id-pious]
 ```
+
+Note : requête curl pour tester les routes :
+
+> curl -X GET <http://localhost:5000/user/test/pious>
