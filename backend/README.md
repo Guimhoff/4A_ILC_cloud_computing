@@ -53,15 +53,19 @@ Les langages et technologies utilisés sont les suivants :
 ### Base 1 : utilisateurs
 
 ```none
-clés :  u-\<pseudo-user> valeur : {pseudo, date-inscription}
+clés :  u-<pseudo-user> valeur : {pseudo, date-inscription}
 ```
 
-Correspondance pseudo/password ?
+* Correspondance utilisateur mot de passe :
+
+```none
+clés :  u-<pseudo-user>-password valeur : <password>
+```
 
 ### Base 2 : pious
 
 ```none
-clés :  p-\<id-piou> valeur : {id, id-quote, text, date, pseudo-user}
+clés :  p-<id-piou> valeur : {id, id-quote, text, date, pseudo-user}
 ```
 
 ### Base 3 : sujets
