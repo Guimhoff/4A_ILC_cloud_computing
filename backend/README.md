@@ -18,7 +18,7 @@ Les langages et technologies utilisés sont les suivants :
 
 * Enregistrer un piou dans Redis :
 
-> [POST] /new-piou
+> [POST] /piouter
 >> Arguments : text (str), token (str)
 
 * Afficher les pious attribués à une personne :
@@ -60,6 +60,12 @@ clés :  u-<pseudo-user> valeur : {pseudo, date-inscription}
 
 ```none
 clés :  u-<pseudo-user>-password valeur : <password>
+```
+
+* Correspondance token utilisateur :
+
+```none
+clés :  t-<token> valeur : {pseudo, login-date, stay-logged}
 ```
 
 ### Base 2 : pious
