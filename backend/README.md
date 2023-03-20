@@ -83,3 +83,4 @@ clés :  s-<sujet> valeur : [id-pious]
 Note : requête curl pour tester les routes :
 
 > curl -X GET <http://localhost:5000/user/test/pious>
+> curl -d "pseudo=bonjour&password=1234" -X POST <http://localhost:5000/login>
