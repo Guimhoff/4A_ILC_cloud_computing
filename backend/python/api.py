@@ -57,7 +57,7 @@ def get_new_piou_id():
      return r_pious.incr("next-id")
 
 def get_subject_in_text(text):
-    pattern = r"#[a-zA-Z0-9]+"
+    pattern = r"#(\w+)"
     return re.findall(pattern, text)
 
 @app.route("/piouter", methods=['POST'])
@@ -77,7 +77,7 @@ def postPiouter():
     r_pious.set("p-" + str(id), json.dumps({"id": id, "text": text, "date":time.time_ns(), "pseudo-user":pseudo}))
 
     for sujet in get_subject_in_text(text):
-        r_sujets.sadd("s-" + sujet[1:], id)
+        r_sujets.sadd("s-" + sujet, id)
 
     return make_response(jsonify({"message": "Operation successfull !", "id-piou":id}), 200)
         
@@ -103,7 +103,7 @@ def postRepiouter():
     
     text = json.loads(r_pious.get("p-" + idPiou).decode())["text"]
     for sujet in get_subject_in_text(text):
-        r_sujets.sadd("s-" + sujet[1:], id)
+        r_sujets.sadd("s-" + sujet, id)
 
     return make_response(jsonify({"message": "Operation successfull !", "id-piou":id}), 200)
 
