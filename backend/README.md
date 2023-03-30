@@ -16,6 +16,10 @@ Les langages et technologies utilisés sont les suivants :
 
 > [GET] /pious
 
+* Afficher un piou :
+
+> [GET] /piou=\<id-piou>
+
 * Enregistrer un piou dans Redis :
 
 > [POST] /piouter
@@ -48,6 +52,21 @@ Les langages et technologies utilisés sont les suivants :
 > [POST] /login
 >> Arguments : pseudo (str), password (str)
 
+* Se déconnecter en tant qu'utilisateur :
+
+> [POST] /logout
+>> Arguments : token (str)
+
+* Supprimer un utilisateur :
+
+> [DELETE] /delete-user
+>> Arguments : token (str), password (str)
+
+* Supprimer un utilisateur par un admin :
+
+> [DELETE] /admin-delete-user
+>> Arguments : token (str), pseudo (str)
+
 ## Redis
 
 ### Base 1 : utilisateurs
@@ -70,8 +89,16 @@ clés :  t-<token> valeur : {pseudo, login-date, stay-logged}
 
 ### Base 2 : pious
 
+* Pious :
+
 ```none
 clés :  p-<id-piou> valeur : {id, id-quote, text, date, pseudo-user}
+```
+
+* Nombre de pious :
+
+```none
+clés :  next-id valeur : <int>
 ```
 
 ### Base 3 : sujets
@@ -84,3 +111,20 @@ Note : requête curl pour tester les routes :
 
 > curl -X GET <http://localhost:5000/user/test/pious>
 > curl -d "pseudo=bonjour&password=1234" -X POST <http://localhost:5000/login>
+
+## Lancer Reddis
+
+> docker run --name piouteur -p 6379:6379 redis
+
+## Exemples de requêtes
+
+> curl -X POST localhost:5000/new-user -d "pseudo=Mindeufair&password=1234"
+> curl -X POST localhost:5000/login -d "pseudo=Mindeufair&password=1234"
+> curl -X POST localhost:5000/piouter -d "token=\<token>&text=Salut c'est Guillaume !"
+> curl -X POST localhost:5000/repiouter -d "token=\<token>&id-piou=1"
+> curl -X GET localhost:5000/pious
+> curl -X GET localhost:5000/piou=1
+> curl -X GET localhost:5000/piou=2
+> curl -X GET localhost:5000/sujets
+> curl -X GET localhost:5000/sujet=\<sujet>
+> curl -X GET localhost:5000/user/Mindeufair/pious
