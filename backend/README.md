@@ -117,11 +117,11 @@ Note : requête curl pour tester les routes :
 
 > curl -X POST <http://localhost:5000/new-user> -d "pseudo=Mindeufair&password=1234"  
 > curl -X POST <http://localhost:5000/login> -d "pseudo=Mindeufair&password=1234"  
-> curl -X POST <http://localhost:5000/piouter> -d "token=\<token>&text=Salut c'est Guillaume !"  
+> curl -X POST <http://localhost:5000/piouter> -d "token=\<token>&text=Salut c'est Guillaume ! #Bonjour"  
 > curl -X POST <http://localhost:5000/repiouter> -d "token=\<token>&id-piou=1"  
 > curl -X GET <http://localhost:5000/pious>  
 > curl -X GET <http://localhost:5000/piou=1>  
 > curl -X GET <http://localhost:5000/piou=2>  
 > curl -X GET <http://localhost:5000/sujets>  
-> curl -X GET <http://localhost:5000/sujet=>\<sujet>  
+> curl -X GET <http://localhost:5000/sujet=Bonjour>  
 > curl -X GET <http://localhost:5000/user/Mindeufair/pious>  

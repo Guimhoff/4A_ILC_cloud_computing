@@ -5,6 +5,7 @@ import redis
 import uuid
 import json
 import hashlib
+import re
 
 app = Flask(__name__)
 
@@ -18,7 +19,7 @@ r_sujets = redis.Redis(host='localhost', port=6379, db=2)
 def getPious():
     pious = []
     for key in r_pious.scan_iter("p-*"):
-        pious.append(json.loads(r_pious.get(key).decode())["id"])
+        pious.append(key.decode()[2:])
         
     return make_response(jsonify({"message": "Operation successfull !", "pious":pious}), 200)
 
@@ -39,15 +40,25 @@ def getPiousByUser(username):
 
 @app.route("/sujets", methods=['GET'])
 def getSujets():
-    return "TODO"
+    sujets = []
+    for key in r_sujets.scan_iter("s-*"):
+        sujets.append(key.decode()[2:])
+    return make_response(jsonify({"message": "Operation successfull !", "sujets":sujets}), 200)
 
 @app.route("/sujet=<sujet>", methods=['GET'])
 def getSujet(sujet):
-    return "TODO;" + sujet
+    pious = []
+    for key in r_sujets.smembers("s-" + sujet):
+        pious.append(key.decode())
+    return make_response(jsonify({"message": "Operation successfull !", "pious":pious}), 200)
 
 
 def get_new_piou_id():
      return r_pious.incr("next-id")
+
+def get_subject_in_text(text):
+    pattern = r"#[a-zA-Z0-9]+"
+    return re.findall(pattern, text)
 
 @app.route("/piouter", methods=['POST'])
 def postPiouter():
@@ -64,6 +75,9 @@ def postPiouter():
     id = get_new_piou_id()
 
     r_pious.set("p-" + str(id), json.dumps({"id": id, "text": text, "date":time.time_ns(), "pseudo-user":pseudo}))
+
+    for sujet in get_subject_in_text(text):
+        r_sujets.sadd("s-" + sujet[1:], id)
 
     return make_response(jsonify({"message": "Operation successfull !", "id-piou":id}), 200)
         
@@ -87,6 +101,10 @@ def postRepiouter():
 
     r_pious.set("p-" + str(id), json.dumps({"id": id, "id-quote": idPiou, "date":time.time_ns(), "pseudo-user":pseudo}))
     
+    text = json.loads(r_pious.get("p-" + idPiou).decode())["text"]
+    for sujet in get_subject_in_text(text):
+        r_sujets.sadd("s-" + sujet[1:], id)
+
     return make_response(jsonify({"message": "Operation successfull !", "id-piou":id}), 200)
 
 def genToken():
