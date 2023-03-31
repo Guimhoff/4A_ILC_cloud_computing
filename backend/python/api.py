@@ -6,8 +6,10 @@ import uuid
 import json
 import hashlib
 import re
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 r_users = redis.Redis(host='localhost', port=6379, db=0)
 r_pious = redis.Redis(host='localhost', port=6379, db=1)
@@ -19,7 +21,7 @@ r_sujets = redis.Redis(host='localhost', port=6379, db=2)
 def getPious():
     pious = []
     for key in r_pious.scan_iter("p-*"):
-        pious.append(key.decode()[2:])
+        pious.append(json.loads(r_pious.get(key).decode()))
         
     return make_response(jsonify({"message": "Operation successfull !", "pious":pious}), 200)
 
