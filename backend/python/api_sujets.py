@@ -1,6 +1,5 @@
 import json
-import redis
-from flask import Flask, request, jsonify, make_response
+from flask import jsonify, make_response
 import api
 
 

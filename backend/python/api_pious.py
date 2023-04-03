@@ -1,11 +1,10 @@
 from flask import request, make_response, jsonify
 import time
-import redis
-import uuid
 import json
-import hashlib
 import re
+
 import api
+import api_users
 
 
 
@@ -48,7 +47,7 @@ def postPiouter():
     text = request.form.get('text') 
     token = request.form.get('token')
 
-    if not api.checkToken(token):
+    if not api_users.checkToken(token):
         return make_response(jsonify({"error": "Invalid token"}), 401)
     
     pseudo = json.loads(api.r_users.get("t-" + token).decode())["pseudo"]
@@ -70,7 +69,7 @@ def postRepiouter():
     idPiou = request.form.get('id-piou')
     token = request.form.get('token')
 
-    if not api.checkToken(token):
+    if not api_users.checkToken(token):
         return make_response(jsonify({"error": "Invalid token"}), 401)
     
     if api.r_pious.get("p-" + idPiou) == None:
