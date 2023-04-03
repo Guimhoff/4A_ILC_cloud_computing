@@ -75,6 +75,11 @@ def postRepiouter():
     if api.r_pious.get("p-" + idPiou) == None:
         return make_response(jsonify({"error": "Id-piou not found"}), 404)
 
+    for key in api.r_pious.scan_iter("p-*"):
+        piou = json.loads(api.r_pious.get(key).decode())
+        if piou.get("id-quote") == idPiou:
+            return make_response(jsonify({"error": "Already repiouted"}), 403)
+
     pseudo = json.loads(api.r_users.get("t-" + token).decode())["pseudo"]
     id = get_new_piou_id()
 
