@@ -116,7 +116,7 @@ def deleteUser():
     api.r_users.delete("p-" + pseudo)
 
     # Supprime les pious de l'utilisateur
-    for key in api.r_pious.keys():
+    for key in api.r_pious.scan_iter("p-*"):
         if json.loads(api.r_pious.get(key).decode())["pseudo-user"] == pseudo:
             api.r_pious.delete(key)
     
