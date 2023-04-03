@@ -111,7 +111,17 @@ Note : requête curl pour tester les routes :
 
 ## Lancer Reddis
 
-> docker run --name piouteur -p 6379:6379 redis
+> docker run --name piouteur-redis -p 6379:6379 -d redis
+
+## Lancer le docker de l'API
+
+* Construire l'image
+
+> docker build -t piouteur-api .
+
+* Lancer le conteneur
+
+> docker run --name piouteur-api -p 5000:5000 -d piouteur-api
 
 ## Exemples de requêtes
 

@@ -11,9 +11,27 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-r_users = redis.Redis(host='localhost', port=6379, db=0)
-r_pious = redis.Redis(host='localhost', port=6379, db=1)
-r_sujets = redis.Redis(host='localhost', port=6379, db=2)
+
+r_users = None
+r_pious = None
+r_sujets = None
+
+def findHost():
+    # On vérifie si le host est bien gateway.docker.internal ou localhost
+    global r_users, r_pious, r_sujets
+
+    host = "gateway.docker.internal"
+    try:
+        redis.Redis(host=host, port=6379, db=0).ping()
+    except:
+        host = "localhost"
+        redis.Redis(host=host, port=6379, db=0).ping()
+    
+    r_users = redis.Redis(host=host, port=6379, db=0)
+    r_pious = redis.Redis(host=host, port=6379, db=1)
+    r_sujets = redis.Redis(host=host, port=6379, db=2)
+    return
+
 
 
 
@@ -242,8 +260,9 @@ def adminDeleteUser():
 
     return make_response(jsonify({"message": "Operation successfull !"}), 200)
 
-if __name__ == '__main__':
+findHost()
 
+if __name__ == '__main__':
     if len(sys.argv) > 1:
         if sys.argv[1] == "check_syntax":
             print("Build [ OK ]")
