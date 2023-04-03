@@ -109,17 +109,45 @@ clés :  s-<sujet> valeur : [id-pious]
 
 Note : requête curl pour tester les routes :
 
-## Lancer Reddis
+## Commandes cmd / Powershell
+
+### Commandes automatiques
+
+* Lancer le script de montage et démarrage des conteneurs
+
+> .\cmd\build_and_run_all.ps1
+
+* Lancer le script de démarrage des conteneurs
+
+> .\cmd\run_all.ps1
+
+* Lancer le script d'arrêt des conteneurs
+
+> .\cmd\stop_all.ps1
+
+* Lancer le script de suppression des conteneurs
+
+> .\cmd\rm_all.ps1
+
+* Lancer le script de réinitialisation de la base de données
+
+> .\cmd\clean_redis.ps1
+
+* Lancer le script de montage et démarrage de l'API (avec suppression d'une ancienne API si nécessaire)
+
+> .\cmd\build_and_run_api.ps1
+
+### Commandes manuelles
+
+* Lancer Reddis
 
 > docker run --name piouteur-redis -p 6379:6379 -d redis
 
-## Lancer le docker de l'API
-
-* Construire l'image
+* Construire l'image de l'API
 
 > docker build -t piouteur-api .
 
-* Lancer le conteneur
+* Lancer le conteneur de l'API
 
 > docker run --name piouteur-api -p 5000:5000 -d piouteur-api
 
