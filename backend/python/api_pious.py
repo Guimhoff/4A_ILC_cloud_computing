@@ -8,31 +8,24 @@ import re
 import api
 
 
-r_pious = None
-
-def setRedisPious(redis_pious):
-    global r_pious
-    r_pious = redis_pious
-    return
-
 
 def getPious():
     pious = []
-    for key in r_pious.scan_iter("p-*"):
-        pious.append(json.loads(r_pious.get(key).decode()))
+    for key in api.r_pious.scan_iter("p-*"):
+        pious.append(json.loads(api.r_pious.get(key).decode()))
         
     return make_response(jsonify({"message": "Operation successfull !", "pious":pious}), 200)
 
 
 def getPiou(id):
-    piou = json.loads(r_pious.get("p-" + id).decode())
+    piou = json.loads(api.r_pious.get("p-" + id).decode())
     return make_response(jsonify({"message": "Operation successfull !", "piou":piou}), 200)
 
 
 def getPiousByUser(username):
     pious = []
-    for key in r_pious.scan_iter("p-*"):
-        piou = json.loads(r_pious.get(key).decode())
+    for key in api.r_pious.scan_iter("p-*"):
+        piou = json.loads(api.r_pious.get(key).decode())
         if piou["pseudo-user"] == username:
             pious.append(piou)
     
@@ -41,7 +34,7 @@ def getPiousByUser(username):
 
 
 def get_new_piou_id():
-     return r_pious.incr("next-id")
+     return api.r_pious.incr("next-id")
 
 def get_subject_in_text(text):
     pattern = r"#(\w+)"
@@ -61,7 +54,7 @@ def postPiouter():
     pseudo = json.loads(api.r_users.get("t-" + token).decode())["pseudo"]
     id = get_new_piou_id()
 
-    r_pious.set("p-" + str(id), json.dumps({"id": id, "text": text, "date":time.time_ns(), "pseudo-user":pseudo}))
+    api.r_pious.set("p-" + str(id), json.dumps({"id": id, "text": text, "date":time.time_ns(), "pseudo-user":pseudo}))
 
     for sujet in get_subject_in_text(text):
         api.r_sujets.sadd("s-" + sujet, id)
@@ -80,15 +73,15 @@ def postRepiouter():
     if not api.checkToken(token):
         return make_response(jsonify({"error": "Invalid token"}), 401)
     
-    if r_pious.get("p-" + idPiou) == None:
+    if api.r_pious.get("p-" + idPiou) == None:
         return make_response(jsonify({"error": "Id-piou not found"}), 404)
 
     pseudo = json.loads(api.r_users.get("t-" + token).decode())["pseudo"]
     id = get_new_piou_id()
 
-    r_pious.set("p-" + str(id), json.dumps({"id": id, "id-quote": idPiou, "date":time.time_ns(), "pseudo-user":pseudo}))
+    api.r_pious.set("p-" + str(id), json.dumps({"id": id, "id-quote": idPiou, "date":time.time_ns(), "pseudo-user":pseudo}))
     
-    text = json.loads(r_pious.get("p-" + idPiou).decode())["text"]
+    text = json.loads(api.r_pious.get("p-" + idPiou).decode())["text"]
     for sujet in get_subject_in_text(text):
         api.r_sujets.sadd("s-" + sujet, id)
 

@@ -9,6 +9,7 @@ import re
 from flask_cors import CORS
 
 import api_pious
+import api_sujets
 
 app = Flask(__name__)
 CORS(app)
@@ -33,7 +34,6 @@ def findHost():
     r_pious = redis.Redis(host=host, port=6379, db=1)
     r_sujets = redis.Redis(host=host, port=6379, db=2)
 
-    api_pious.setRedisPious(r_pious)
     return
 
 findHost()
@@ -64,17 +64,11 @@ def postRepiouter():
 
 @app.route("/sujets", methods=['GET'])
 def getSujets():
-    sujets = []
-    for key in r_sujets.scan_iter("s-*"):
-        sujets.append(key.decode()[2:])
-    return make_response(jsonify({"message": "Operation successfull !", "sujets":sujets}), 200)
+    return api_sujets.getSujets()
 
 @app.route("/sujet=<sujet>", methods=['GET'])
 def getSujet(sujet):
-    pious = []
-    for key in r_sujets.smembers("s-" + sujet):
-        pious.append(json.loads(r_pious.get("p-" + key.decode()).decode()))
-    return make_response(jsonify({"message": "Operation successfull !", "pious":pious}), 200)
+    return api_sujets.getSujet(sujet)
 
 # Gestions users
 
