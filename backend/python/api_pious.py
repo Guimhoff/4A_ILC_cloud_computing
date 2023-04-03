@@ -17,6 +17,9 @@ def getPious():
 
 
 def getPiou(id):
+    if not api.r_pious.exists("p-" + id):
+        return make_response(jsonify({"error": "Piou not found"}), 404)
+    
     piou = json.loads(api.r_pious.get("p-" + id).decode())
     return make_response(jsonify({"message": "Operation successfull !", "piou":piou}), 200)
 
