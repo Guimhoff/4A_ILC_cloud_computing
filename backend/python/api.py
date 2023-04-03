@@ -32,6 +32,7 @@ def findHost():
     r_sujets = redis.Redis(host=host, port=6379, db=2)
     return
 
+findHost()
 
 
 
@@ -54,7 +55,7 @@ def getPiousByUser(username):
     for key in r_pious.scan_iter("p-*"):
         piou = json.loads(r_pious.get(key).decode())
         if piou["pseudo-user"] == username:
-            pious.append(piou["id"])
+            pious.append(piou)
     
     return make_response(jsonify({"message": "Operation successfull !", "pious":pious}), 200)
 
@@ -69,7 +70,7 @@ def getSujets():
 def getSujet(sujet):
     pious = []
     for key in r_sujets.smembers("s-" + sujet):
-        pious.append(key.decode())
+        pious.append(json.loads(r_pious.get("p-" + key.decode()).decode()))
     return make_response(jsonify({"message": "Operation successfull !", "pious":pious}), 200)
 
 
@@ -259,8 +260,6 @@ def adminDeleteUser():
     # TODO: Create admin token and check if token is admin
 
     return make_response(jsonify({"message": "Operation successfull !"}), 200)
-
-findHost()
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
