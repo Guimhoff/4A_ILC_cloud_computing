@@ -111,7 +111,7 @@ Note : requête curl pour tester les routes :
 
 ## Commandes cmd / Powershell
 
-### Commandes automatiques
+### Commandes automatisées
 
 * Lancer le script de montage et démarrage des conteneurs
 
