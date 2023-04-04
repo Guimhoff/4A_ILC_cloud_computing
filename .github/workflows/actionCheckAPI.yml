@@ -1,0 +1,19 @@
+name: Vérification de la syntaxe et de l'intégrité de l'API
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Vérification de la syntaxe et de l'intégrité de l'API
+    runs-on: ubuntu-latest
+    steps:
+    - name: Vérification code source
+      uses: actions/checkout@v3
+    - name: Build de l'image Docker de l'API
+      run: docker build -t piouteur-api ./backend
+    - name: Vérification de la syntaxe de l'API
+      run: docker run --rm piouteur-api flake8
+    - name: Vérification de l'intégrité de l'API
+      run: docker run --rm piouteur-api python -m unittest discover -p "*_test.py"
