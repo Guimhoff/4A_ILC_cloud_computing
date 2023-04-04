@@ -33,7 +33,8 @@ const FormInput = (props) => {
         <main>
         <button type="button" style={buttonStyle} 
             onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>{props.title}</button>
+            onMouseLeave={handleMouseLeave}
+            id={props.id}>{props.title}</button>
         </main>
     )
 }

@@ -14,13 +14,13 @@ const ConnexionPage = () => {
       </p>
 
       <hr style={separatorStyles}/>
-      
+
       <section>
 
         <FormInput title="Nom d'utilisateur" id='username' name='Nom' />
         <FormInput title="Mot de passe" id='password' name='Mot de passe' type='password' />
 
-        <ValidationButton title="Connexion !" />
+        <ValidationButton title="Connexion !" id="loginIn" />
       </section>
 
       <hr style={separatorStyles}/>
