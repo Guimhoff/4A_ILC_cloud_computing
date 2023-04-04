@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import FormInput from "../components/formInput"
 
 const pageStyles = {
   color: "#232129",
@@ -28,17 +29,20 @@ const NouveauComptePage = () => {
     <main style={pageStyles}>
         <h1 style={headingStyles}>Nouveau compte</h1>
         <p style={paragraphStyles}>
-            Bienvenue sur Piouteur ! Veuillez créer un compte pour accéder au site web.
-            <br />
-            {process.env.NODE_ENV === "development" ? (
-            <>
-                <br />
-                Try creating a page in <code style={codeStyles}>src/pages/</code>.
-                <br />
-            </>
-            ) : null}
-            <br />
-            Vous avez déjà un compte ? <Link to="/connexion">Connectez-vous</Link>.
+          Bienvenue sur Piouteur ! Veuillez créer un compte pour accéder au site web.
+        
+
+          <section>
+
+            <FormInput title="Nom d'utilisateur" id='username' name='Nom' />
+            <FormInput title="Mot de passe" id='password' name='Mot de passe' />
+            <FormInput title="Confirmer le mot de passe" id='password_confirm' name='Confirmation mot de passe' />
+
+          </section>
+        </p>
+
+        <p>
+          Vous avez déjà un compte ? <Link to="/connexion">Connectez-vous</Link>.
         </p>
     </main>
   )
