@@ -13,6 +13,8 @@ jobs:
       uses: actions/checkout@v3
     - name: Build de l'image Docker de l'API
       run: docker build -t piouteur-api ./backend
+    - name: Installation de Flake8 dans l'image Docker
+      run: docker run --rm piouteur-api pip install flake8
     - name: Vérification de la syntaxe de l'API
       run: docker run --rm piouteur-api flake8
     - name: Vérification de l'intégrité de l'API
