@@ -6,6 +6,7 @@ RUN apt-get install python3-pip -y
 RUN pip install flask
 RUN pip install flask-cors
 RUN pip install redis
+RUN pip install flake8
 
 
 COPY . .
