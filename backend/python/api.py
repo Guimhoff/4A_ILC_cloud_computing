@@ -53,7 +53,6 @@ def getPious():
 def getPiou(id):
     return api_pious.getPiou(id)
 
-
 @app.route("/user/<username>/pious", methods=['GET'])
 def getPiousByUser(username):
     return api_pious.getPiousByUser(username)
