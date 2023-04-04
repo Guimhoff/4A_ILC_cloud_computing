@@ -7,9 +7,6 @@ RUN pip install flask-cors
 RUN pip install redis
 RUN pip install flake8
 
-WORKDIR /app
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
