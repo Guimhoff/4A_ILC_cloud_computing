@@ -14,6 +14,6 @@ jobs:
     - name: Build de l'image Docker de l'API
       run: docker build -t piouteur-api ./backend
     - name: Vérification de la syntaxe de l'API
-      run: docker run --rm piouteur-api flake8
+      run: docker run --rm piouteur-api flake8 --exclude=./usr/*
     - name: Vérification de l'intégrité de l'API
       run: docker run --rm piouteur-api python -m unittest discover -p "*_test.py"
