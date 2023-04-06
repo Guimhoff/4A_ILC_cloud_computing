@@ -34,7 +34,10 @@ const FormInput = (props) => {
         <button type="button" style={buttonStyle} 
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            id={props.id}>{props.title}</button>
+            id={props.idBouton}
+            onClick={props.onClickButton}>
+                {props.title}
+            </button>
         </main>
     )
 }
