@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import FormInput from "../components/formInput"
 import ValidationButton from "../components/validationButton"
-import {pageStyles, headingStyles, paragraphStyles, separatorStyles} from "../styles/globalStyles.js"
+import * as styles from "../styles/globalStyles.js"
 
 
 const ConnexionPage = () => {
@@ -31,7 +31,7 @@ const ConnexionPage = () => {
       if (data.token) {
         console.log(data.token)
         localStorage.setItem('token', data.token)
-        window.location.href = 'http://localhost:8000'
+        window.location.href = 'http://localhost:8000/accueil'
       }
       if (data.error) {
         console.log(data.error)
@@ -41,13 +41,13 @@ const ConnexionPage = () => {
   }
 
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Connexion</h1>
-      <p style={paragraphStyles}>
+    <main style={styles.loginPageStyles}>
+      <h1 style={styles.headingStyles}>Connexion</h1>
+      <p style={styles.paragraphStyles}>
         Bienvenue sur Piouteur ! Veuillez vous connecter pour accéder au site web.
       </p>
 
-      <hr style={separatorStyles}/>
+      <hr style={styles.separatorStyles}/>
 
       <section>
 
@@ -57,7 +57,7 @@ const ConnexionPage = () => {
         <ValidationButton title="Connexion !" idBouton="loginIn" onClickButton={connexion} />
       </section>
 
-      <hr style={separatorStyles}/>
+      <hr style={styles.separatorStyles}/>
 
       <p>
         Vous n'avez pas encore de compte ? <Link to="/nouveau-compte">Créez-en un !</Link>

@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import FormInput from "../components/formInput"
 import ValidationButton from "../components/validationButton"
 
-import {pageStyles, headingStyles, paragraphStyles, separatorStyles} from "../styles/globalStyles.js"
+import * as styles from "../styles/globalStyles.js"
 
 
 
@@ -53,13 +53,13 @@ const NouveauComptePage = () => {
   }
 
   return (
-    <main style={pageStyles}>
-        <h1 style={headingStyles}>Nouveau compte</h1>
-        <p style={paragraphStyles}>
+    <main style={styles.loginPageStyles}>
+        <h1 style={styles.headingStyles}>Nouveau compte</h1>
+        <p style={styles.paragraphStyles}>
           Bienvenue sur Piouteur ! Veuillez créer un compte pour accéder au site web.
         </p>
 
-        <hr style={separatorStyles}/>
+        <hr style={styles.separatorStyles}/>
 
         <section>
 
@@ -70,7 +70,7 @@ const NouveauComptePage = () => {
           <ValidationButton title="Créer mon compte !" idBouton="createAccount" onClickButton={createAccount} />
         </section>
 
-        <hr style={separatorStyles}/>
+        <hr style={styles.separatorStyles}/>
 
         <p>
           Vous avez déjà un compte ? <Link to="/connexion">Connectez-vous</Link>.

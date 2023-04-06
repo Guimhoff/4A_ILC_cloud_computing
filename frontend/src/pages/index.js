@@ -1,5 +1,5 @@
 import * as React from "react"
-import { pageStyles, paragraphStyles } from "../styles/globalStyles"
+import { pageStyles } from "../styles/globalStyles"
 
 const IndexPage = () => {
 
