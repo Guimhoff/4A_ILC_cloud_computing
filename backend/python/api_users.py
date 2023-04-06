@@ -104,6 +104,18 @@ def postLogout():
     return make_response(jsonify({"message": "Operation successfull !"}), 200)
 
 
+def postTestToken():
+    if request.form.get('token') is None:
+        return make_response(jsonify({"error": "Missing argument"}), 400)
+
+    token = request.form.get('token')
+
+    if not checkToken(token):
+        return make_response(jsonify({"error": "Invalid token"}), 401)
+
+    return make_response(jsonify({"message": "Operation successfull !"}), 200)
+
+
 def deleteUser():
     if (request.form.get('token') is None
             or request.form.get('password') is None):

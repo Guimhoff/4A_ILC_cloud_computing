@@ -98,6 +98,11 @@ def postLogout():
     return api_users.postLogout()
 
 
+@app.route("/test-token", methods=['POST'])
+def postTestToken():
+    return api_users.postTestToken()
+
+
 @app.route("/delete-user", methods=['DELETE'])
 def deleteUser():
     return api_users.deleteUser()
