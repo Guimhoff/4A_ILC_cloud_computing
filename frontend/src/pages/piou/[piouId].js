@@ -8,7 +8,6 @@ const DynamicPiouPage = (req, res) => {
 
     const [piou, setPious] = React.useState(null)
 
-    console.log(req.params.profilName)
 
     React.useEffect(() => {
         fetch("http://localhost:5000/piou=" + req.params.piouId)
@@ -24,7 +23,7 @@ const DynamicPiouPage = (req, res) => {
             setPious(data.piou)
             console.log(data)
         })
-    }, [])
+    }, [req.params.piouId])
     
     return (
         <GlobalLayout title={"Piou " + req.params.piouId}>

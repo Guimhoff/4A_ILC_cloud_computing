@@ -2,8 +2,7 @@ import * as React from 'react'
 import GlobalLayout from '../components/globalLayout.js'
 import * as styles from '../styles/globalStyles.js'
 import PiouList from '../components/piouList.js'
-
-export const accueilTitle = "🏠 Accueil"
+import { accueilTitle } from '../globalVar/windowTitles.js'
 
 const Accueil = () => {
 

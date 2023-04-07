@@ -49,9 +49,9 @@ const NouveauPiou = () => {
 
 
     return (
-        <GlobalLayout title="Nouveau Piou" nouveauPiouButton={false}>
+        <GlobalLayout title="💬 Nouveau Piou" nouveauPiouButton={false}>
             <main style={styles.nouveauPiouStyle}>
-                <h1 style={styles.h1Style}>Nouveau Piou</h1>
+                <h1>Nouveau Piou</h1>
                 <textarea style={styles.nouveauPiouTextStyle} name="text" id="text" ></textarea>
                 <ValidationButton title="Piouter !" idBouton="sendPiou" onClickButton={sendPiou} />
             </main>

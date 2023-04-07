@@ -2,9 +2,8 @@ import React from 'react';
 import GlobalLayout from '../components/globalLayout.js'
 import * as styles from '../styles/globalStyles.js'
 import SujetListe from '../components/sujetListe.js'
+import { sujetsTitle } from '../globalVar/windowTitles.js'
 
-
-export const sujetsTitle = "📚 Sujets"
 
 const Sujets = () => {
 

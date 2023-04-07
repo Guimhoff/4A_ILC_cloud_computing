@@ -2,8 +2,7 @@ import * as React from "react"
 import MenuButton from "./menuButton.js"
 import * as styles from "../styles/globalStyles.js"
 import NouveauPiouButton from "./nouveauPiouButton.js"
-import { sujetsTitle } from '../pages/sujets.js';
-import { accueilTitle } from '../pages/accueil.js';
+import { accueilTitle, sujetsTitle, rechercheTitle, deconnexionTitle } from "../globalVar/windowTitles.js"
 
 const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
 
@@ -74,8 +73,6 @@ const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
 
 
     const profilTitle = "👤 " + username
-    const rechercheTitle = "🔍 Rechercher"
-    const deconnexionTitle = "🚪 Déconnexion"
 
 
     return (
@@ -86,7 +83,7 @@ const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
         <MenuButton title={accueilTitle} link="/accueil" selected={title===accueilTitle} />
         <MenuButton title={sujetsTitle} link="/sujets" selected={title===sujetsTitle} />
         <MenuButton title={rechercheTitle} link="/rechercher" selected={title===rechercheTitle} />
-        <MenuButton title={deconnexionTitle} onClickButton={deconnexion} link="/connexion" selected={title===deconnexionTitle} />
+        <MenuButton title={deconnexionTitle} onClickButton={deconnexion} link="/connexion" selected={false} />
         </nav>
         <hr style={styles.separatorStyles}/>
         {children}
