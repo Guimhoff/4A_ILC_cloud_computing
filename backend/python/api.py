@@ -49,14 +49,29 @@ def getPious():
     return api_pious.getPious()
 
 
+@app.route("/pious", methods=['POST'])
+def postPious():
+    return api_pious.postPious()
+
+
 @app.route("/piou=<id>", methods=['GET'])
 def getPiou(id):
     return api_pious.getPiou(id)
 
 
+@app.route("/piou=<id>", methods=['POST'])
+def postPiou(id):
+    return api_pious.postPiou(id)
+
+
 @app.route("/user/<username>/pious", methods=['GET'])
 def getPiousByUser(username):
     return api_pious.getPiousByUser(username)
+
+
+@app.route("/user/<username>/pious", methods=['POST'])
+def postPiousByUser(username):
+    return api_pious.postPiousByUser(username)
 
 
 @app.route("/piouter", methods=['POST'])
@@ -74,6 +89,11 @@ def getSearchPious(text):
     return api_pious.getSearchPious(text)
 
 
+@app.route("/search-pious=<text>", methods=['POST'])
+def postSearchPious(text):
+    return api_pious.postSearchPious(text)
+
+
 # Gestions sujets
 
 
@@ -85,6 +105,11 @@ def getSujets():
 @app.route("/sujet=<sujet>", methods=['GET'])
 def getSujet(sujet):
     return api_sujets.getSujet(sujet)
+
+
+@app.route("/sujet=<sujet>", methods=['POST'])
+def postSujet(sujet):
+    return api_sujets.postSujet(sujet)
 
 
 @app.route("/search-sujets=<text>", methods=['GET'])
