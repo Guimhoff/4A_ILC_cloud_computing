@@ -109,7 +109,7 @@ def postPiousByUser(username):
         if not api.r_pious.exists("p-" + str(id)):
             continue
 
-        piou = json.loads(api.r_pious.get(id).decode())
+        piou = json.loads(api.r_pious.get("p-" + str(id)).decode())
         if piou["pseudo-user"] == username:
             if "id-quote" in piou:
                 piou["quote"] = json.loads(api.r_pious.get(
@@ -191,7 +191,7 @@ def postRepiouter():
         api.r_sujets.sadd("s-" + sujet, idRepiou)
 
     return make_response(jsonify(
-        {"message": "Operation successfull !", "id-piou": id}), 200)
+        {"message": "Operation successfull !", "id-piou": idRepiou}), 200)
 
 
 def getSearchPious(text):
