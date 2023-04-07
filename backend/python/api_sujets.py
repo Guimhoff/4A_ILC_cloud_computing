@@ -2,6 +2,7 @@ import json
 from flask import jsonify, make_response, request
 import api
 import api_users
+import api_pious
 
 
 def getSujets():
@@ -42,8 +43,7 @@ def postSujet(sujet):
         if api.r_pious.exists("p-" + key.decode()):
             piou = json.loads(api.r_pious.get("p-" + key.decode()).decode())
             if "id-quote" in piou:
-                piou["quote"] = json.loads(api.r_pious.get(
-                    "p-" + str(piou["id-quote"])).decode())
+                piou["quote"] = api_pious.buildQuote(piou["id-quote"], pseudo)
             piou["repiouted"] = api.r_pious.get(
                 "p-" + str(piou["id"]) + "-rp-" + pseudo) is not None
             pious.append(piou)

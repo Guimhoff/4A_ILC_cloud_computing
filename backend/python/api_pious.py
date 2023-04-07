@@ -36,14 +36,30 @@ def postPious():
 
         piou = json.loads(api.r_pious.get("p-" + str(id)).decode())
         if "id-quote" in piou:
-            piou["quote"] = json.loads(api.r_pious.get(
-                "p-" + str(piou["id-quote"])).decode())
+            piou["quote"] = buildQuote(piou["id-quote"], pseudo)
         piou["repiouted"] = api.r_pious.get(
             "p-" + str(piou["id"]) + "-rp-" + pseudo) is not None
         pious.append(piou)
 
     return make_response(jsonify(
         {"message": "Operation successfull !", "pious": pious}), 200)
+
+
+def buildQuote(id, pseudo):
+    if not api.r_pious.exists("p-" + id):
+        return make_response(jsonify({"error": "Piou not found"}), 404)
+
+    piou = json.loads(api.r_pious.get("p-" + id).decode())
+    quote = {
+        "id": piou["id"],
+        "pseudo-user": piou["pseudo-user"],
+        "text": piou["text"],
+        "date": piou["date"],
+        "repiouted": api.r_pious.get(
+            "p-" + str(piou["id"]) + "-rp-" + pseudo) is not None
+    }
+
+    return quote
 
 
 def getPiou(id):
@@ -72,8 +88,7 @@ def postPiou(id):
 
     piou = json.loads(api.r_pious.get("p-" + id).decode())
     if "id-quote" in piou:
-        piou["quote"] = json.loads(api.r_pious.get(
-            "p-" + str(piou["id-quote"])).decode())
+        piou["quote"] = buildQuote(piou["id-quote"], pseudo)
     piou["repiouted"] = api.r_pious.get(
         "p-" + str(piou["id"]) + "-rp-" + pseudo) is not None
 
@@ -112,8 +127,7 @@ def postPiousByUser(username):
         piou = json.loads(api.r_pious.get("p-" + str(id)).decode())
         if piou["pseudo-user"] == username:
             if "id-quote" in piou:
-                piou["quote"] = json.loads(api.r_pious.get(
-                    "p-" + str(piou["id-quote"])).decode())
+                piou["quote"] = buildQuote(piou["id-quote"], pseudo)
             piou["repiouted"] = api.r_pious.get(
                 "p-" + str(piou["id"]) + "-rp-" + pseudo) is not None
             pious.append(piou)
@@ -171,7 +185,8 @@ def postRepiouter():
         return make_response(jsonify({"error": "Id-piou not found"}), 404)
 
     # prevent repiouting a repiout
-    if api.r_pious.get("p-" + idPiou).decode().find("id-quote") is not None:
+    if json.loads(api.r_pious.get(
+            "p-" + idPiou).decode()).get("id-quote") is not None:
         return make_response(jsonify({"error": "Can't repioute a repiou"}),
                              409)
 
@@ -231,8 +246,7 @@ def postSearchPious(text):
 
         if text in piou["text"]:
             if "id-quote" in piou:
-                piou["quote"] = json.loads(api.r_pious.get(
-                    "p-" + str(piou["id-quote"])).decode())
+                piou["quote"] = buildQuote(piou["id-quote"], pseudo)
             piou["repiouted"] = api.r_pious.get(
                 "p-" + str(piou["id"]) + "-rp-" + pseudo) is not None
             pious.append(piou)
