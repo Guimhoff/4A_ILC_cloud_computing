@@ -23,13 +23,25 @@ const Piou = (props) => {
     
     const pseudoUser = props.piou["pseudo-user"]
 
-    return (
-        <button style={piouStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-            <Link to={"/profil/" + pseudoUser} style={styles.authorPiouStyle}>{pseudoUser}</Link>
-            <Link to={"/piou/" + props.piou.id} style={styles.textPiouStyle}>{props.piou.text}</Link>
-            <BoutonRepiouter isRP={props.piou.repiouted} idPiou={props.piou.id} />
-        </button>
-    )
+    if (props.piou.quote === undefined) {
+        return (
+            <button style={piouStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+                <Link to={"/profil/" + pseudoUser} style={styles.authorPiouStyle}>{pseudoUser}</Link>
+                <Link to={"/piou/" + props.piou.id} style={styles.textPiouStyle}>{props.piou.text}</Link>
+                <BoutonRepiouter isRP={props.piou.repiouted} idPiou={props.piou.id} />
+            </button>
+        )
+    } else {
+        console.log(props.piou.quote)
+        return (
+            <div style={piouStyle} >
+                <div>
+                    <Link to={"/profil/" + pseudoUser} style={styles.authorRepiouStyle}>{pseudoUser}</Link> a repiouté
+                </div>
+                <Piou piou={props.piou.quote} />
+            </div>
+        )
+    }
 }
 
 export default Piou

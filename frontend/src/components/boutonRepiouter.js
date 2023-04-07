@@ -22,6 +22,8 @@ const BoutonRepiouter = (props) => {
     }
     
     const handleClick = () => {
+        if (isRP) return
+
         setIsRP(true)
 
         const form = new FormData()
@@ -46,9 +48,9 @@ const BoutonRepiouter = (props) => {
     }
 
     return (
-        <button style={boutonStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
+        <a style={boutonStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
             {isRP ? "Repiouté" : "Repiouter"}
-        </button>
+        </a>
         
     )
 }

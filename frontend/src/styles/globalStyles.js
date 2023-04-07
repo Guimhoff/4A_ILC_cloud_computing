@@ -37,7 +37,8 @@ export const separatorStyles = {
     marginTop: 30,
     marginLeft: 0,
     marginRight: 0,
-    height: "3px",
+    minHeight: "1px",
+    height: "1px",
     border: "none",
     backgroundColor: "#f2f2f2",
 }
@@ -63,7 +64,7 @@ export const piouBlockStyle = {
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "left",
-    marginBottom: "30px",
+    marginBottom: "0px",
     marginTop: "0px",
     marginLeft: "0px",
     marginRight: "0px",
@@ -85,6 +86,18 @@ export const textPiouStyle = {
 
 export const authorPiouStyle = {
     fontSize: "24px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    color: "black",
+    marginBottom: "5px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+}
+
+export const authorRepiouStyle = {
+    fontSize: "18px",
     fontWeight: "bold",
     textDecoration: "none",
     color: "black",
@@ -280,10 +293,15 @@ export const userListStyle = {
 }
 
 export const userStyle = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     fontSize: "24px",
     fontWeight: "bold",
     textDecoration: "none",
     color: "black",
+    height: "50px",
     marginBottom: "5px",
     marginTop: "0px",
     marginLeft: "0px",
