@@ -7,6 +7,39 @@ import { accueilTitle } from '../pages/accueil.js';
 
 const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
 
+    // Check if the user is logged in
+    if (!localStorage.getItem("token")) {
+        console.log("Pas de token.")
+        localStorage.removeItem('username')
+        window.location.href = "/connexion"
+    }
+
+    // Check if the token is valid
+    const formData = new FormData();
+    formData.append('token', localStorage.getItem("token"));
+
+    fetch("http://localhost:5000/test-token", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => {
+        if (response.status === 200) {
+            console.log("Token valide !")
+        } else {
+            console.log("Token invalide.")
+            localStorage.removeItem('token')
+            localStorage.removeItem('username')
+            window.location.href = '/connexion'
+        }
+        return response.json()
+    })
+    .then(data => {
+        if (data.error) {
+            console.log(data.error)
+        }
+    })
+
+    // Function to log out
     function deconnexion() {
         console.log("Déconnexion")
 
@@ -34,6 +67,7 @@ const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
 
         // Delete the token from the local storage
         localStorage.removeItem('token')
+        localStorage.removeItem('username')
     }
 
     const username = localStorage.getItem("username")
@@ -46,7 +80,7 @@ const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
 
     return (
     <main style={styles.pageStyles}>
-        <title>{title}</title>
+        <title>Piouteur - {title}</title>
         <nav style={styles.navStyle}>
         <MenuButton title={profilTitle} link={"/profil/" + username} selected={title===profilTitle} />
         <MenuButton title={accueilTitle} link="/accueil" selected={title===accueilTitle} />
