@@ -1,8 +1,11 @@
 import * as React from "react"
 import MenuButton from "./menuButton.js"
 import * as styles from "../styles/globalStyles.js"
+import NouveauPiouButton from "./nouveauPiouButton.js"
+import { sujetsTitle } from '../pages/sujets.js';
+import { accueilTitle } from '../pages/accueil.js';
 
-const GlobalLayout = ({ title, children }) => {
+const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
 
     function deconnexion() {
         console.log("Déconnexion")
@@ -35,18 +38,25 @@ const GlobalLayout = ({ title, children }) => {
 
     const username = localStorage.getItem("username")
 
+
+    const profilTitle = "👤 " + username
+    const rechercheTitle = "🔍 Rechercher"
+    const deconnexionTitle = "🚪 Déconnexion"
+
+
     return (
     <main style={styles.pageStyles}>
         <title>{title}</title>
         <nav style={styles.navStyle}>
-        <MenuButton title={"👤 " + username} link={"/profil/" + username} selected={title==="👤 " + username} />
-        <MenuButton title="Accueil" link="/accueil" selected={title==="Accueil"} />
-        <MenuButton title="Sujets" link="/sujets" selected={title==="Sujets"} />
-        <MenuButton title="Rechercher" link="/rechercher" selected={title==="Rechercher"} />
-        <MenuButton title="Déconnexion" onClickButton={deconnexion} link="/connexion" selected={title==="Déconnexion"} />
+        <MenuButton title={profilTitle} link={"/profil/" + username} selected={title===profilTitle} />
+        <MenuButton title={accueilTitle} link="/accueil" selected={title===accueilTitle} />
+        <MenuButton title={sujetsTitle} link="/sujets" selected={title===sujetsTitle} />
+        <MenuButton title={rechercheTitle} link="/rechercher" selected={title===rechercheTitle} />
+        <MenuButton title={deconnexionTitle} onClickButton={deconnexion} link="/connexion" selected={title===deconnexionTitle} />
         </nav>
         <hr style={styles.separatorStyles}/>
         {children}
+        {nouveauPiouButton ? <NouveauPiouButton /> : null }
     </main>
     )
 }

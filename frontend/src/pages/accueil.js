@@ -3,6 +3,7 @@ import GlobalLayout from '../components/globalLayout.js'
 import * as styles from '../styles/globalStyles.js'
 import PiouList from '../components/piouList.js'
 
+export const accueilTitle = "🏠 Accueil"
 
 const Accueil = () => {
 
@@ -26,7 +27,7 @@ const Accueil = () => {
     }, [])
 
     return (
-        <GlobalLayout title="Accueil">
+        <GlobalLayout title={accueilTitle}>
             {pious ? <PiouList pious={pious}></PiouList> : <p style={styles.paragraphStyles}>Chargement...</p>}
         </GlobalLayout>
     );

@@ -143,3 +143,63 @@ export const sujetStyle = {
     height: "50px",
     borderRadius: '10px',
 }
+
+export const nouveauPiouButtonStyle = {
+    position: "fixed",
+    bottom: "20px",
+    right: "10%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "24px",
+    textDecoration: "none",
+    color: "black",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    marginBottom: "0px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+    height: "50px",
+    borderRadius: '10px',
+    backgroundColor: "#f2f2f2",
+}
+
+export const nouveauPiouTextStyle = {
+    fontSize: "24px",
+    textDecoration: "none",
+    color: "black",
+    backgroundColor: "#ffffff",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    marginBottom: "0px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "1px solid #f2f2f2",
+    borderRadius: '10px',
+    resize: "none",
+    width: "100%",
+    height: "100%"
+}
+
+export const nouveauPiouStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontSize: "24px",
+    textDecoration: "none",
+    color: "black",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    marginBottom: "0px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+    height: "70vh",
+    with: "100%",
+}

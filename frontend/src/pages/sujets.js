@@ -4,6 +4,7 @@ import * as styles from '../styles/globalStyles.js'
 import SujetListe from '../components/sujetListe.js'
 
 
+export const sujetsTitle = "📚 Sujets"
 
 const Sujets = () => {
 
@@ -34,7 +35,7 @@ const Sujets = () => {
 
 
     return (
-        <GlobalLayout title="Sujets">
+        <GlobalLayout title={sujetsTitle}>
             {sujets ? <SujetListe sujets={sujets}></SujetListe> : <p style={styles.paragraphStyles}>Chargement...</p>}
         </GlobalLayout>
     );
