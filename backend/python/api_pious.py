@@ -30,8 +30,11 @@ def postPious():
     pseudo = json.loads(api.r_users.get("t-" + token).decode())["pseudo"]
 
     pious = []
-    for key in api.r_pious.scan_iter("p-*"):
-        piou = json.loads(api.r_pious.get(key).decode())
+    for id in range(int(api.r_pious.get("next-id").decode()), 0, -1):
+        if not api.r_pious.exists("p-" + str(id)):
+            continue
+
+        piou = json.loads(api.r_pious.get("p-" + str(id)).decode())
         if "id-quote" in piou:
             piou["quote"] = json.loads(api.r_pious.get(
                 "p-" + str(piou["id-quote"])).decode())
@@ -102,8 +105,11 @@ def postPiousByUser(username):
     pseudo = json.loads(api.r_users.get("t-" + token).decode())["pseudo"]
 
     pious = []
-    for key in api.r_pious.scan_iter("p-*"):
-        piou = json.loads(api.r_pious.get(key).decode())
+    for id in range(int(api.r_pious.get("next-id").decode()), 0, -1):
+        if not api.r_pious.exists("p-" + str(id)):
+            continue
+
+        piou = json.loads(api.r_pious.get(id).decode())
         if piou["pseudo-user"] == username:
             if "id-quote" in piou:
                 piou["quote"] = json.loads(api.r_pious.get(
