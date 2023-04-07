@@ -3,11 +3,14 @@
 
 export const pageStyles = {
     color: "#232129",
+    display: "flex",
+    flexDirection: "column",
     paddingLeft: "96px",
     paddingRight: "96px",
     paddingTop: "0px",
     paddingBottom: "0px",
     fontFamily: "-apple-system, Roboto, sans-serif, serif",
+    maxHeight: "100vh",
 }
 
 export const loginPageStyles = {
@@ -46,9 +49,62 @@ export const navStyle = {
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: "0px",
-    marginTop: "0px",
+    marginTop: "8px",
     marginLeft: "0px",
     marginRight: "0px",
     border: "none",
     backgroundColor: "#f2f2f2",
+    borderRadius: '4px',
+}
+
+
+export const piouBlockStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "left",
+    marginBottom: "30px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+    borderRadius: '4px',
+}
+
+export const textPiouStyle = {
+    fontSize: "24px",
+    marginBottom: "0px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+}
+
+export const authorPiouStyle = {
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "5px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+}
+
+export const piouListStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "left",
+    marginBottom: "0px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+    borderRadius: '4px',
+    paddingLeft: "0px",
+    paddingRight: "0px",
+    paddingTop: "0px",
+    paddingBottom: "0px",
+    overflowY: "auto",
+    maxHeight: "100vh",
 }
