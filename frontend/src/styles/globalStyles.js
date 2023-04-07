@@ -206,3 +206,69 @@ export const nouveauPiouStyle = {
     height: "70vh",
     with: "100%",
 }
+
+export const rechercheTypeButtonSelected = {
+    backgroundColor: "#4CAF50",
+    border: "none",
+    color: "white",
+    padding: "10px 20px",
+    textAlign: "center",
+    textDecoration: "none",
+    display: "inline-block",
+    fontSize: "16px",
+    margin: "4px 2px",
+    cursor: "pointer",
+    borderRadius: "10px",
+}
+
+export const rechercheTypeButton = {
+    backgroundColor: "#f2f2f2",
+    border: "none",
+    color: "black",
+    padding: "10px 20px",
+    textAlign: "center",
+    textDecoration: "none",
+    display: "inline-block",
+    fontSize: "16px",
+    margin: "4px 2px",
+    cursor: "pointer",
+    borderRadius: "10px",
+}
+
+export const rechercheBar = {
+    backgroundColor: "#f2f2f2",
+    width: '100%',
+    padding: '12px 20px',
+    margin: '8px 0',
+    display: 'inline-block',
+    border: 'none',
+    borderRadius: '10px',
+    boxSizing: 'border-box',
+}
+
+export const userListStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "5px",
+    marginTop: "0px",
+    marginLeft: "20%",
+    marginRight: "20%",
+    border: "none",
+    paddingLeft: "0px",
+}
+
+export const userStyle = {
+    fontSize: "24px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    color: "black",
+    marginBottom: "5px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+    borderRadius: '10px',
+}
