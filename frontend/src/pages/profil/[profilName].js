@@ -4,13 +4,14 @@ import PiouList from '../../components/piouList.js';
 import GlobalLayout from '../../components/globalLayout.js';
 
 
-
-const DynamicSujetPiousPage = (req, res) => {
+const DynamicProfilPiousPage = (req, res) => {
 
     const [pious, setPious] = React.useState(null)
 
+    console.log(req.params.profilName)
+
     React.useEffect(() => {
-        fetch("http://localhost:5000/sujet=" + req.params.sujetName)
+        fetch("http://localhost:5000/user/" + req.params.profilName + "/pious")
         .then(response => {
             if (response.status === 200) {
                 console.log("Piou récupérés !")
@@ -24,14 +25,14 @@ const DynamicSujetPiousPage = (req, res) => {
             console.log(data)
         })
     }, [])
-
+    
     return (
-        <GlobalLayout title={"#" + req.params.sujetName}>
-            <h1>#{req.params.sujetName}</h1>
+        <GlobalLayout title={"👤 " + req.params.profilName}>
+            <h1>👤 {req.params.profilName}</h1>
             {pious ? <PiouList pious={pious}></PiouList> : <p style={styles.paragraphStyles}>Chargement...</p>}
         </GlobalLayout>
     );
 }
 
-export default DynamicSujetPiousPage
+export default DynamicProfilPiousPage
 

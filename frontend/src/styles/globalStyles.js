@@ -83,6 +83,8 @@ export const textPiouStyle = {
 export const authorPiouStyle = {
     fontSize: "24px",
     fontWeight: "bold",
+    textDecoration: "none",
+    color: "black",
     marginBottom: "5px",
     marginTop: "0px",
     marginLeft: "0px",

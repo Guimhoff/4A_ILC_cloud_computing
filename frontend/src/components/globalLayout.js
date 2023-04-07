@@ -33,12 +33,14 @@ const GlobalLayout = ({ title, children }) => {
         localStorage.removeItem('token')
     }
 
+    const username = localStorage.getItem("username")
+
     return (
     <main style={styles.pageStyles}>
         <title>{title}</title>
         <nav style={styles.navStyle}>
+        <MenuButton title={"👤 " + username} link={"/profil/" + username} selected={title==="👤 " + username} />
         <MenuButton title="Accueil" link="/accueil" selected={title==="Accueil"} />
-        <MenuButton title="Profil" link="/profil" selected={title==="Profil"} />
         <MenuButton title="Sujets" link="/sujets" selected={title==="Sujets"} />
         <MenuButton title="Rechercher" link="/rechercher" selected={title==="Rechercher"} />
         <MenuButton title="Déconnexion" onClickButton={deconnexion} link="/connexion" selected={title==="Déconnexion"} />

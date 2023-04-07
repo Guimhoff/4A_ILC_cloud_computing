@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { Link } from 'gatsby';
 import * as styles from '../styles/globalStyles.js';
 
 
@@ -21,7 +22,7 @@ const Piou = (props) => {
     
     return (
         <main style={piouStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-            <p style={styles.authorPiouStyle}>{props.author}</p>
+            <Link to={"/profil/" + props.author} style={styles.authorPiouStyle}>{props.author}</Link>
             <p style={styles.textPiouStyle}>{props.text}</p>
         </main>
     )
