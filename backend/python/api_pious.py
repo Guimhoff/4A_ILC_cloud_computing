@@ -102,3 +102,14 @@ def postRepiouter():
 
     return make_response(jsonify(
         {"message": "Operation successfull !", "id-piou": id}), 200)
+
+
+def getSearchPious(text):
+    pious = []
+    for key in api.r_pious.scan_iter("p-*"):
+        piou = json.loads(api.r_pious.get(key).decode())
+        if text in piou["text"]:
+            pious.append(piou)
+
+    return make_response(jsonify(
+        {"message": "Operation successfull !", "pious": pious}), 200)

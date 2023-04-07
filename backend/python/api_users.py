@@ -175,3 +175,13 @@ def adminGetUsers():
         users.append(json.loads(api.r_users.get(key).decode()))
 
     return make_response(jsonify({"users": users}), 200)
+
+
+def getSearchUsers(text):
+    users = []
+    for key in api.r_users.scan_iter("u-*"):
+        user = json.loads(api.r_users.get(key).decode())
+        if text in user["pseudo"]:
+            users.append(user)
+
+    return make_response(jsonify({"users": users}), 200)

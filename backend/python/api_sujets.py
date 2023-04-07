@@ -20,3 +20,13 @@ def getSujet(sujet):
 
     return make_response(jsonify(
         {"message": "Operation successfull !", "pious": pious}), 200)
+
+
+def getSearchSujets(text):
+    sujets = []
+    for key in api.r_sujets.scan_iter("s-*"):
+        if text in key.decode():
+            sujets.append(key.decode()[2:])
+
+    return make_response(jsonify(
+        {"message": "Operation successfull !", "sujets": sujets}), 200)

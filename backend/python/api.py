@@ -68,6 +68,12 @@ def postPiouter():
 def postRepiouter():
     return api_pious.postRepiouter()
 
+
+@app.route("/search-pious=<text>", methods=['GET'])
+def getSearchPious(text):
+    return api_pious.getSearchPious(text)
+
+
 # Gestions sujets
 
 
@@ -80,7 +86,18 @@ def getSujets():
 def getSujet(sujet):
     return api_sujets.getSujet(sujet)
 
+
+@app.route("/search-sujets=<text>", methods=['GET'])
+def getSearchSujets(text):
+    return api_sujets.getSearchSujets(text)
+
+
 # Gestions users
+
+
+@app.route("/search-users=<text>", methods=['GET'])
+def getSearchUsers(text):
+    return api_users.getSearchUsers(text)
 
 
 @app.route("/new-user", methods=['POST'])
