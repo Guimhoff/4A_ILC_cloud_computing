@@ -20,10 +20,12 @@ const Piou = (props) => {
         backgroundColor: isHover ? '#eff8ef' : '#ffffff'
     }
     
+    const pseudoUser = props.piou["pseudo-user"]
+
     return (
         <main style={piouStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-            <Link to={"/profil/" + props.author} style={styles.authorPiouStyle}>{props.author}</Link>
-            <p style={styles.textPiouStyle}>{props.text}</p>
+            <Link to={"/profil/" + pseudoUser} style={styles.authorPiouStyle}>{pseudoUser}</Link>
+            <Link to={"/piou/" + props.piou.id} style={styles.textPiouStyle}>{props.piou.text}</Link>
         </main>
     )
 }

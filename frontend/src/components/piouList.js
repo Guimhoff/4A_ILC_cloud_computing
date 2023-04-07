@@ -11,7 +11,7 @@ const PiouList = (props) => {
         const piouList = []
         for (let i = 0; i < pious.length; i++) {
             const piou = pious[i]
-            piouList.push(<Piou text={piou.text} author={piou["pseudo-user"]} key={i} />)
+            piouList.push(<Piou piou={piou} key={i} />)
         }
         return piouList
     }

@@ -73,6 +73,9 @@ export const piouBlockStyle = {
 
 export const textPiouStyle = {
     fontSize: "24px",
+    fontWeight: "normal",
+    textDecoration: "none",
+    color: "black",
     marginBottom: "0px",
     marginTop: "0px",
     marginLeft: "0px",
