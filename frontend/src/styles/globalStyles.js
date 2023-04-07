@@ -95,6 +95,25 @@ export const authorPiouStyle = {
     border: "none",
 }
 
+export const buttonPiouStyle = {
+    fontSize: "18px",
+    fontWeight: "none",
+    textDecoration: "none",
+    color: "black",
+    marginBottom: "0px",
+    marginTop: "10px",
+    marginLeft: "50px",
+    marginRight: "0px",
+    border: "none",
+    backgroundColor: "transparent",
+    borderRadius: '10px',
+    paddingLeft: "10px",
+    paddingRight: "10px",
+    paddingTop: "5px",
+    paddingBottom: "5px",
+    cursor: "pointer",
+}
+
 export const piouListStyle = {
     display: "flex",
     flexDirection: "column",

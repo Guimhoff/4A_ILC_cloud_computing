@@ -10,7 +10,13 @@ const Accueil = () => {
     // Get all pious from the backend
     const [pious, setPious] = React.useState(null)
     React.useEffect(() => {
-        fetch("http://localhost:5000/pious")
+        const form = new FormData()
+        form.append("token", localStorage.getItem("token"))
+
+        fetch("http://localhost:5000/pious", {
+            method: "POST",
+            body: form
+        })
         .then(response => {
             if (response.status === 200) {
                 console.log("Piou récupérés !")

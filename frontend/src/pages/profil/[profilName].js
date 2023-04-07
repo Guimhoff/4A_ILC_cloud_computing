@@ -11,7 +11,14 @@ const DynamicProfilPiousPage = (req, res) => {
     console.log(req.params.profilName)
 
     React.useEffect(() => {
-        fetch("http://localhost:5000/user/" + req.params.profilName + "/pious")
+
+        const form = new FormData()
+        form.append("token", localStorage.getItem("token"))
+
+        fetch("http://localhost:5000/user/" + req.params.profilName + "/pious", {
+            method: "POST",
+            body: form
+        })
         .then(response => {
             if (response.status === 200) {
                 console.log("Piou récupérés !")
@@ -24,7 +31,7 @@ const DynamicProfilPiousPage = (req, res) => {
             setPious(data.pious)
             console.log(data)
         })
-    }, [])
+    }, [req.params.profilName])
     
     return (
         <GlobalLayout title={"👤 " + req.params.profilName}>

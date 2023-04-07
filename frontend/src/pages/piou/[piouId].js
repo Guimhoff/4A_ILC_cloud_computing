@@ -10,7 +10,14 @@ const DynamicPiouPage = (req, res) => {
 
 
     React.useEffect(() => {
-        fetch("http://localhost:5000/piou=" + req.params.piouId)
+
+        const form = new FormData()
+        form.append("token", localStorage.getItem("token"))
+
+        fetch("http://localhost:5000/piou=" + req.params.piouId, {
+            method: "POST",
+            body: form
+        })
         .then(response => {
             if (response.status === 200) {
                 console.log("Piou récupérés !")
