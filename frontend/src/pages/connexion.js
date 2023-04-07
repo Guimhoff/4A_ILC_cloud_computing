@@ -31,6 +31,7 @@ const ConnexionPage = () => {
       if (data.token) {
         console.log(data.token)
         localStorage.setItem('token', data.token)
+        localStorage.setItem('username', username)
         window.location.href = 'http://localhost:8000/accueil'
       }
       if (data.error) {

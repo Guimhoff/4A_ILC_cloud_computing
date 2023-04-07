@@ -108,3 +108,36 @@ export const piouListStyle = {
     overflowY: "auto",
     maxHeight: "100vh",
 }
+
+
+export const sujetListeStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "5px",
+    marginTop: "0px",
+    marginLeft: "20%",
+    marginRight: "20%",
+    border: "none",
+    paddingLeft: "0px",
+}
+
+export const sujetStyle = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontSize: "24px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    color: "black",
+    marginBottom: "5px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+    height: "50px",
+    borderRadius: '10px',
+}

@@ -1,16 +1,16 @@
-import * as React from 'react'
-import GlobalLayout from '../components/globalLayout.js'
-import * as styles from '../styles/globalStyles.js'
-import PiouList from '../components/piouList.js'
+import * as React from 'react';
+import * as styles from '../../styles/globalStyles.js';
+import PiouList from '../../components/piouList.js';
+import GlobalLayout from '../../components/globalLayout.js';
 
 
-const Accueil = () => {
 
+const DynamicSujetPiousPage = (req, res) => {
 
-    // Get all pious from the backend
     const [pious, setPious] = React.useState(null)
+
     React.useEffect(() => {
-        fetch("http://localhost:5000/pious")
+        fetch("http://localhost:5000/sujet=" + req.params.sujetName)
         .then(response => {
             if (response.status === 200) {
                 console.log("Piou récupérés !")
@@ -25,13 +25,16 @@ const Accueil = () => {
         })
     }, [])
 
+
+
+
     return (
-        <GlobalLayout title="Accueil">
+        <GlobalLayout title={req.params.sujetName}>
+            <h1>#{req.params.sujetName}</h1>
             {pious ? <PiouList pious={pious}></PiouList> : <p style={styles.paragraphStyles}>Chargement...</p>}
         </GlobalLayout>
     );
 }
 
-export default Accueil;
-
+export default DynamicSujetPiousPage
 
