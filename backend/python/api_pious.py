@@ -170,6 +170,11 @@ def postRepiouter():
     if api.r_pious.get("p-" + idPiou) is None:
         return make_response(jsonify({"error": "Id-piou not found"}), 404)
 
+    # prevent repiouting a repiout
+    if api.r_pious.get("p-" + idPiou).decode().find("id-quote") is not None:
+        return make_response(jsonify({"error": "Can't repioute a repiou"}),
+                             409)
+
     idRepiou = "p-" + idPiou + "-rp-" + pseudo
     newPiouId = get_new_piou_id()
 
@@ -220,6 +225,10 @@ def postSearchPious(text):
     pious = []
     for key in api.r_pious.scan_iter("p-*"):
         piou = json.loads(api.r_pious.get(key).decode())
+
+        if piou.get("id-quote") is not None:
+            continue
+
         if text in piou["text"]:
             if "id-quote" in piou:
                 piou["quote"] = json.loads(api.r_pious.get(
