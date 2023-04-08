@@ -6,8 +6,7 @@ import PiouList from "../components/piouList.js"
 import SujetListe from "../components/sujetListe.js"
 import UserList from "../components/userList.js"
 
-// Standard item which allows to search for either users, topics or pious (3 buttons to switch between the 3)
-// Must include a search bar
+// Page which allows to search for either users, topics or pious (including 3 buttons to switch between the 3)
 const Rechercher = () => {
 
     const [searchType, setSearchType] = React.useState("users")
@@ -16,6 +15,7 @@ const Rechercher = () => {
     const [topicResults, setTopicResults] = React.useState(null)
     const [piouResults, setPiouResults] = React.useState(null)
 
+    // Get the list of users from the backend
     function searchUsers() {
         const searchInput = document.getElementById("searchInput").value
 
@@ -34,6 +34,7 @@ const Rechercher = () => {
         })
     }
 
+    // Get the list of sujets from the backend
     function searchTopics() {
         const searchInput = document.getElementById("searchInput").value
 
@@ -52,6 +53,7 @@ const Rechercher = () => {
         })
     }
 
+    // Get the list of pious from the backend
     function searchPious() {
         const searchInput = document.getElementById("searchInput").value
 
@@ -76,6 +78,7 @@ const Rechercher = () => {
         })
     }
 
+    // Search for users, topics and pious
     function search() {
         if (document.getElementById("searchInput").value === "") {
             setUserResults(null)
@@ -90,7 +93,7 @@ const Rechercher = () => {
         return
     }
     
-
+    // Displays the searchbar, the buttons, and the results depending on the search type
     return (
         <GlobalLayout title={rechercheTitle}>
             <input style={styles.rechercheBar} type="text" placeholder="Rechercher..." onChange={search} id="searchInput"></input>
