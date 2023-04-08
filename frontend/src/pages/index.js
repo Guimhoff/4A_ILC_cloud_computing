@@ -1,6 +1,7 @@
 import * as React from "react"
-import { pageStyles } from "../styles/globalStyles"
+import * as styles from "../styles/globalStyles"
 
+// Redirect to login page if no token, else redirect to accueil page
 const IndexPage = () => {
 
   // If no token, redirect to login page
@@ -33,7 +34,7 @@ const IndexPage = () => {
   })
   
   return (
-    <main style={pageStyles}>
+    <main style={styles.redirectPageStyles}>
       Redirection en cours...
     </main>
   )
