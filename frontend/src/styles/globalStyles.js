@@ -20,25 +20,33 @@ export const labelStyles = {
 }
 
 export const headingStyles = {
-    marginTop: 0,
-    marginBottom: 64,
-    maxWidth: 320,
+    marginTop: "0px",
+    marginBottom: "64px",
+    maxWidth: "320px",
 }
 
 export const paragraphStyles = {
-    marginBottom: 0,
+    marginBottom: "0px",
 }
 
 export const separatorStyles = {
-    marginBottom: 30,
-    marginTop: 30,
-    marginLeft: 0,
-    marginRight: 0,
+    marginBottom: "30px",
+    marginTop: "30px",
+    marginLeft: "0px",
+    marginRight: "0px",
     minHeight: "1px",
     height: "1px",
     border: "none",
     backgroundColor: "#f2f2f2",
 }
+
+// Styles for the redirect page
+export const redirectPageStyles = {
+    fontFamily: "-apple-system, Roboto, sans-serif, serif",
+    fontSize: "22px",
+    margin: "50px",
+}
+
 
 // Styles for the main content of the login page
 export const loginPageStyles = {
@@ -46,7 +54,6 @@ export const loginPageStyles = {
     paddingLeft: "96px",
     paddingRight: "96px",
     paddingTop: "40px",
-    paddingBottom: "0px",
     fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 
@@ -56,10 +63,7 @@ export const navStyle = {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: "0px",
     marginTop: "8px",
-    marginLeft: "0px",
-    marginRight: "0px",
     border: "none",
     backgroundColor: "#f2f2f2",
     borderRadius: '4px',
@@ -78,10 +82,6 @@ export const nouveauPiouButtonStyle = {
     color: "black",
     paddingLeft: "20px",
     paddingRight: "20px",
-    marginBottom: "0px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
     border: "none",
     height: "50px",
     borderRadius: '10px',
@@ -94,12 +94,8 @@ export const piouBlockStyle = {
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "left",
-    marginBottom: "0px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
     border: "none",
-    borderRadius: '4px',
+    borderRadius: '10px',
 }
 
 export const textPiouStyle = {
@@ -108,10 +104,6 @@ export const textPiouStyle = {
     textAlign: "left",
     textDecoration: "none",
     color: "black",
-    marginBottom: "0px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
     border: "none",
 }
 
@@ -129,9 +121,6 @@ export const authorPiouStyle = {
     textDecoration: "none",
     color: "black",
     marginBottom: "5px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
     border: "none",
 }
 
@@ -141,10 +130,6 @@ export const datePiouStyle = {
     textDecoration: "none",
     textAlign: "right",
     color: "grey",
-    marginBottom: "0px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
     border: "none",
 }
 
@@ -154,9 +139,6 @@ export const authorRepiouStyle = {
     textDecoration: "none",
     color: "black",
     marginBottom: "5px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
     border: "none",
 }
 
@@ -185,10 +167,7 @@ export const piouListStyle = {
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "left",
-    marginBottom: "0px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
+    margin: "0px",
     border: "none",
     borderRadius: '4px',
     paddingLeft: "0px",
@@ -285,10 +264,7 @@ export const nouveauPiouTextStyle = {
     backgroundColor: "#ffffff",
     paddingLeft: "20px",
     paddingRight: "20px",
-    marginBottom: "0px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
+    margin: "0px",
     border: "1px solid #f2f2f2",
     borderRadius: '10px',
     resize: "none",
@@ -306,10 +282,7 @@ export const nouveauPiouStyle = {
     color: "black",
     paddingLeft: "20px",
     paddingRight: "20px",
-    marginBottom: "0px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
+    margin: "0px",
     border: "none",
     height: "70vh",
     with: "100%",
