@@ -4,9 +4,15 @@ import FormInput from "../components/formInput"
 import ValidationButton from "../components/validationButton"
 import * as styles from "../styles/globalStyles.js"
 
-
+// Page to log the user in, incliding a form to enter his username and password, and a check "remebmer me"
 const ConnexionPage = () => {
 
+  // If the user is already logged in, redirect him to the home page
+  if (localStorage.getItem("token")) {
+    window.location.href = "http://localhost:8000/accueil"
+  }
+
+  // Function to log the user in
   function connexion() {
     let username = document.getElementById("username").value
     let password = document.getElementById("password").value
@@ -14,6 +20,7 @@ const ConnexionPage = () => {
     const formData = new FormData();
     formData.append('pseudo', username);
     formData.append('password', password);
+    formData.append('rememberMe', document.getElementById("rememberMe").checked);
 
     fetch("http://localhost:5000/login", {
       method: "POST",
@@ -54,6 +61,11 @@ const ConnexionPage = () => {
 
         <FormInput title="Nom d'utilisateur" id='username' name='Nom' />
         <FormInput title="Mot de passe" id='password' name='Mot de passe' type='password' />
+        
+        <label style={styles.labelStyles}>
+          <input type="checkbox" id="rememberMe" name="rememberMe" value="rememberMe" />
+          Se souvenir de moi
+        </label>
 
         <ValidationButton title="Connexion !" idBouton="loginIn" onClickButton={connexion} />
       </section>

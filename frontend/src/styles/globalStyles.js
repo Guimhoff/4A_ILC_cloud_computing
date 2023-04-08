@@ -22,6 +22,12 @@ export const loginPageStyles = {
     fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 
+export const labelStyles = {
+    display: "block",
+    marginTop: "8px",
+    marginBottom: "8px",
+}
+
 export const headingStyles = {
     marginTop: 0,
     marginBottom: 64,
