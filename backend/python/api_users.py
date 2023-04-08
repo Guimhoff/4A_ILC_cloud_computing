@@ -83,9 +83,11 @@ def postLogin():
 
     token = genToken()
 
+    stayLogged = request.form.get('stay-logged') is True
+
     api.r_users.set("t-" + token, json.dumps(
-        {"pseudo": pseudo, "login-date": time.time_ns(), "stay-logged": False}
-        ))
+        {"pseudo": pseudo, "login-date": time.time_ns(),
+         "stay-logged": stayLogged}))
 
     return make_response(jsonify({"token": token}), 200)
 

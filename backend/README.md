@@ -50,7 +50,7 @@ Les langages et technologies utilisés sont les suivants :
 * Se connecter en tant qu'utilisateur :
 
 > [POST] /login
->> Arguments : pseudo (str), password (str)
+>> Arguments : pseudo (str), password (str), stay-logged (bool)
 
 * Se déconnecter en tant qu'utilisateur :
 
