@@ -1,6 +1,6 @@
 
 
-
+// Styles for the entire app
 export const pageStyles = {
     color: "#232129",
     display: "flex",
@@ -11,15 +11,6 @@ export const pageStyles = {
     paddingBottom: "0px",
     fontFamily: "-apple-system, Roboto, sans-serif, serif",
     maxHeight: "100vh",
-}
-
-export const loginPageStyles = {
-    color: "#232129",
-    paddingLeft: "96px",
-    paddingRight: "96px",
-    paddingTop: "40px",
-    paddingBottom: "0px",
-    fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 
 export const labelStyles = {
@@ -49,7 +40,17 @@ export const separatorStyles = {
     backgroundColor: "#f2f2f2",
 }
 
+// Styles for the main content of the login page
+export const loginPageStyles = {
+    color: "#232129",
+    paddingLeft: "96px",
+    paddingRight: "96px",
+    paddingTop: "40px",
+    paddingBottom: "0px",
+    fontFamily: "-apple-system, Roboto, sans-serif, serif",
+}
 
+// Styles for the global layout of the app (ie navigation bar)
 export const navStyle = {
     display: "flex",
     flexDirection: "row",
@@ -64,7 +65,30 @@ export const navStyle = {
     borderRadius: '4px',
 }
 
+export const nouveauPiouButtonStyle = {
+    position: "fixed",
+    bottom: "20px",
+    right: "10%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "24px",
+    textDecoration: "none",
+    color: "black",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    marginBottom: "0px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+    height: "50px",
+    borderRadius: '10px',
+    backgroundColor: "#f2f2f2",
+}
 
+// Styles for the pious
 export const piouBlockStyle = {
     display: "flex",
     flexDirection: "column",
@@ -136,7 +160,7 @@ export const authorRepiouStyle = {
     border: "none",
 }
 
-export const buttonPiouStyle = {
+export const buttonPiouStyle = {    // Styles for the repiou button
     fontSize: "18px",
     fontWeight: "none",
     textDecoration: "none",
@@ -155,6 +179,7 @@ export const buttonPiouStyle = {
     cursor: "pointer",
 }
 
+// Styles for the piou list
 export const piouListStyle = {
     display: "flex",
     flexDirection: "column",
@@ -174,7 +199,7 @@ export const piouListStyle = {
     maxHeight: "100vh",
 }
 
-
+// Styles for the sujet list
 export const sujetListeStyle = {
     display: "flex",
     flexDirection: "column",
@@ -194,6 +219,7 @@ export const sujetListeStyle = {
     maxHeight: "100vh",
 }
 
+// Styles for the sujet
 export const sujetStyle = {
     display: "flex",
     flexDirection: "row",
@@ -212,29 +238,46 @@ export const sujetStyle = {
     borderRadius: '10px',
 }
 
-export const nouveauPiouButtonStyle = {
-    position: "fixed",
-    bottom: "20px",
-    right: "10%",
+// Styles for the user list
+export const userListStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "5px",
+    marginTop: "0px",
+    marginLeft: "20%",
+    marginRight: "20%",
+    border: "none",
+    paddingLeft: "0px",
+    paddingRight: "0px",
+    paddingTop: "0px",
+    paddingBottom: "30px",
+    overflowY: "auto",
+    maxHeight: "100vh",
+}
+
+// Styles for the user
+export const userStyle = {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
     fontSize: "24px",
+    fontWeight: "bold",
     textDecoration: "none",
     color: "black",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    marginBottom: "0px",
+    minHeight: "50px",
+    marginBottom: "5px",
     marginTop: "0px",
     marginLeft: "0px",
     marginRight: "0px",
     border: "none",
-    height: "50px",
     borderRadius: '10px',
-    backgroundColor: "#f2f2f2",
 }
 
+// Styles for the nouveau piou page
 export const nouveauPiouTextStyle = {
     fontSize: "24px",
     textDecoration: "none",
@@ -272,6 +315,7 @@ export const nouveauPiouStyle = {
     with: "100%",
 }
 
+// Styles for the recherche page
 export const rechercheTypeButtonSelected = {
     backgroundColor: "#4CAF50",
     border: "none",
@@ -316,39 +360,3 @@ export const divRechercheStyle = {
 }
 
 
-export const userListStyle = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    fontSize: "24px",
-    fontWeight: "bold",
-    marginBottom: "5px",
-    marginTop: "0px",
-    marginLeft: "20%",
-    marginRight: "20%",
-    border: "none",
-    paddingLeft: "0px",
-    paddingRight: "0px",
-    paddingTop: "0px",
-    paddingBottom: "30px",
-    overflowY: "auto",
-    maxHeight: "100vh",
-}
-
-export const userStyle = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    fontSize: "24px",
-    fontWeight: "bold",
-    textDecoration: "none",
-    color: "black",
-    minHeight: "50px",
-    marginBottom: "5px",
-    marginTop: "0px",
-    marginLeft: "0px",
-    marginRight: "0px",
-    border: "none",
-    borderRadius: '10px',
-}
