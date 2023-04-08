@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import * as styles from '../styles/globalStyles.js';
+import { Link } from 'gatsby';
 
 
 const BoutonRepiouter = (props) => {
@@ -48,9 +49,9 @@ const BoutonRepiouter = (props) => {
     }
 
     return (
-        <a style={boutonStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick} href='/'>
+        <Link style={boutonStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick} to='.'>
             {isRP ? "Repiouté" : "Repiouter"}
-        </a>
+        </Link>
         
     )
 }

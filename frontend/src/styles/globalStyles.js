@@ -85,12 +85,33 @@ export const textPiouStyle = {
     border: "none",
 }
 
+export const firstLinePiouStyle = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    minWidth: "100%",
+}
+
 export const authorPiouStyle = {
     fontSize: "24px",
     fontWeight: "bold",
     textDecoration: "none",
     color: "black",
     marginBottom: "5px",
+    marginTop: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    border: "none",
+}
+
+export const datePiouStyle = {
+    fontSize: "16px",
+    fontWeight: "normal",
+    textDecoration: "none",
+    textAlign: "right",
+    color: "grey",
+    marginBottom: "0px",
     marginTop: "0px",
     marginLeft: "0px",
     marginRight: "0px",
