@@ -93,19 +93,15 @@ const Rechercher = () => {
 
     return (
         <GlobalLayout title={rechercheTitle}>
+            <input style={styles.rechercheBar} type="text" placeholder="Rechercher..." onChange={search} id="searchInput"></input>
             <div>
-                <input style={styles.rechercheBar} type="text" placeholder="Rechercher..." onChange={search} id="searchInput"></input>
-                <div>
-                    <button style={searchType === "users" ? styles.rechercheTypeButtonSelected : styles.rechercheTypeButton} onClick={() => setSearchType("users")}>Utilisateurs</button>
-                    <button style={searchType === "sujets" ? styles.rechercheTypeButtonSelected : styles.rechercheTypeButton} onClick={() => setSearchType("sujets")}>Sujets</button>
-                    <button style={searchType === "pious" ? styles.rechercheTypeButtonSelected : styles.rechercheTypeButton} onClick={() => setSearchType("pious")}>Piou</button>
-                </div>
-                <div>
-                    {searchType === "users" ? (userResults? <UserList users={userResults}></UserList> : null) : null}
-                    {searchType === "sujets" ? (topicResults? <SujetListe sujets={topicResults}></SujetListe> : null) : null}
-                    {searchType === "pious" ? (piouResults? <PiouList pious={piouResults}></PiouList> : null) : null}
-                </div>
+                <button style={searchType === "users" ? styles.rechercheTypeButtonSelected : styles.rechercheTypeButton} onClick={() => setSearchType("users")}>Utilisateurs</button>
+                <button style={searchType === "sujets" ? styles.rechercheTypeButtonSelected : styles.rechercheTypeButton} onClick={() => setSearchType("sujets")}>Sujets</button>
+                <button style={searchType === "pious" ? styles.rechercheTypeButtonSelected : styles.rechercheTypeButton} onClick={() => setSearchType("pious")}>Piou</button>
             </div>
+            {searchType === "users" ? (userResults? <UserList users={userResults}></UserList> : null) : null}
+            {searchType === "sujets" ? (topicResults? <SujetListe sujets={topicResults}></SujetListe> : null) : null}
+            {searchType === "pious" ? (piouResults? <PiouList pious={piouResults}></PiouList> : null) : null}
         </GlobalLayout>
     );
 }

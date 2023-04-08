@@ -48,7 +48,7 @@ const BoutonRepiouter = (props) => {
     }
 
     return (
-        <a style={boutonStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
+        <a style={boutonStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick} href='/'>
             {isRP ? "Repiouté" : "Repiouter"}
         </a>
         

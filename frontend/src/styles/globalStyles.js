@@ -75,6 +75,7 @@ export const piouBlockStyle = {
 export const textPiouStyle = {
     fontSize: "24px",
     fontWeight: "normal",
+    textAlign: "left",
     textDecoration: "none",
     color: "black",
     marginBottom: "0px",
@@ -150,7 +151,7 @@ export const piouListStyle = {
 export const sujetListeStyle = {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-between",
     fontSize: "24px",
     fontWeight: "bold",
     marginBottom: "5px",
@@ -159,6 +160,11 @@ export const sujetListeStyle = {
     marginRight: "20%",
     border: "none",
     paddingLeft: "0px",
+    paddingRight: "0px",
+    paddingTop: "0px",
+    paddingBottom: "0px",
+    overflowY: "auto",
+    maxHeight: "100vh",
 }
 
 export const sujetStyle = {
@@ -170,12 +176,12 @@ export const sujetStyle = {
     fontWeight: "bold",
     textDecoration: "none",
     color: "black",
-    marginBottom: "5px",
+    marginBottom: "10px",
     marginTop: "0px",
     marginLeft: "0px",
     marginRight: "0px",
     border: "none",
-    height: "50px",
+    minHeight: "50px",
     borderRadius: '10px',
 }
 
@@ -278,10 +284,15 @@ export const rechercheBar = {
     boxSizing: 'border-box',
 }
 
+export const divRechercheStyle = {
+    maxHeight: "100vh",
+}
+
+
 export const userListStyle = {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-between",
     fontSize: "24px",
     fontWeight: "bold",
     marginBottom: "5px",
@@ -290,6 +301,11 @@ export const userListStyle = {
     marginRight: "20%",
     border: "none",
     paddingLeft: "0px",
+    paddingRight: "0px",
+    paddingTop: "0px",
+    paddingBottom: "30px",
+    overflowY: "auto",
+    maxHeight: "100vh",
 }
 
 export const userStyle = {
@@ -301,7 +317,7 @@ export const userStyle = {
     fontWeight: "bold",
     textDecoration: "none",
     color: "black",
-    height: "50px",
+    minHeight: "50px",
     marginBottom: "5px",
     marginTop: "0px",
     marginLeft: "0px",
