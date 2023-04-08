@@ -4,6 +4,7 @@ import * as styles from '../styles/globalStyles.js';
 import { Link } from 'gatsby';
 
 
+// Standard button to repiout a piou
 const BoutonRepiouter = (props) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -22,6 +23,7 @@ const BoutonRepiouter = (props) => {
         backgroundColor: isHover ? '#67bc67' : (isRP ? '#82c882' : 'transparent'),
     }
     
+    // Repiout a piou
     const handleClick = () => {
         if (isRP) return
 
@@ -44,10 +46,13 @@ const BoutonRepiouter = (props) => {
             return response.json()
         })
         .then(data => {
-            console.log(data)
+            if (data.error) {
+                console.error(data.error)
+            }
         })
     }
 
+    // Display the button
     return (
         <Link style={boutonStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick} to='.'>
             {isRP ? "Repiouté" : "Repiouter"}

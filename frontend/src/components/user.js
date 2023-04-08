@@ -3,6 +3,7 @@ import * as styles from '../styles/globalStyles.js';
 import { Link } from 'gatsby';
 import { useState } from 'react';
 
+// Standard user display
 const User = (props) => {
 
     const [isHover, setIsHover] = useState(false);

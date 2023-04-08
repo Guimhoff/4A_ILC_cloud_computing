@@ -3,6 +3,7 @@ import Piou from './piou.js'
 import * as styles from '../styles/globalStyles.js'
 
 
+// Standard list of piou
 const PiouList = (props) => {
 
     const pious = props.pious

@@ -43,7 +43,7 @@ const ConnexionPage = () => {
 				window.location.href = 'http://localhost:8000/accueil'
 			}
 			if (data.error) {
-				console.log(data.error)
+				console.error(data.error)
 			}
 		})
 

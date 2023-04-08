@@ -4,6 +4,7 @@ import * as styles from "../styles/globalStyles.js"
 import NouveauPiouButton from "./nouveauPiouButton.js"
 import { accueilTitle, sujetsTitle, rechercheTitle, deconnexionTitle } from "../globalVar/windowTitles.js"
 
+// Global layout for all pages (except connexion and inscription)
 const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
 
     // Check if the user is logged in
@@ -34,7 +35,7 @@ const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
     })
     .then(data => {
         if (data.error) {
-            console.log(data.error)
+            console.error(data.error)
         }
     })
 
@@ -60,7 +61,7 @@ const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
         })
         .then(data => {
             if (data.error) {
-                console.log(data.error)
+                console.error(data.error)
             }
         })
 
@@ -71,10 +72,9 @@ const GlobalLayout = ({ title, children , nouveauPiouButton=true }) => {
 
     const username = localStorage.getItem("username")
 
-
     const profilTitle = "👤 " + username
 
-
+    // Display the global layout with the menu buttons and the page content
     return (
     <main style={styles.pageStyles}>
         <title>Piouteur - {title}</title>

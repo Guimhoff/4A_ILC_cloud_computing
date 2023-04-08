@@ -31,7 +31,7 @@ const Rechercher = () => {
         .then(data => {
             setUserResults(data.users)
             if (data.error) {
-                console.log(data.error)
+                console.error(data.error)
             }
         })
     }
@@ -52,7 +52,7 @@ const Rechercher = () => {
         .then(data => {
             setTopicResults(data.sujets)
             if (data.error) {
-                console.log(data.error)
+                console.error(data.error)
             }
         })
     }
@@ -79,7 +79,7 @@ const Rechercher = () => {
         .then(data => {
             setPiouResults(data.pious)
             if (data.error) {
-                console.log(data.error)
+                console.error(data.error)
             }
         })
     }

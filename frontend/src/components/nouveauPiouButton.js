@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import * as styles from '../styles/globalStyles.js';
 
 
+// Standard button to create a new piou
 const NouveauPiouButton = (props) => {
     const [isHover, setIsHover] = useState(false);
 

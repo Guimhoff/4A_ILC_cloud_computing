@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import * as styles from '../styles/globalStyles.js';
 import BoutonRepiouter from './boutonRepiouter.js';
 
-// Element displaying a piou, with its author, date, text and repiout button
+// Standard elemeent displaying a piou
 const Piou = (props) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -28,6 +28,8 @@ const Piou = (props) => {
     
     const pseudoUser = props.piou["pseudo-user"]
 
+    // Display the piou with or without a quote depending on the presence of the quote property
+    // Displays author, date, text and repiout button
     if (props.piou.quote === undefined) {
         return (
             <button style={piouStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
@@ -40,7 +42,6 @@ const Piou = (props) => {
             </button>
         )
     } else {
-        console.log(props.piou.quote)
         return (
             <div style={piouStyle} >
                 <div>

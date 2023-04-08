@@ -29,7 +29,7 @@ const DynamicSujetPiousPage = (req, res) => {
         .then(data => {
             setPious(data.pious)
             if (data.error) {
-                console.log(data.error)
+                console.error(data.error)
             }
         })
     }, [req.params.sujetName])

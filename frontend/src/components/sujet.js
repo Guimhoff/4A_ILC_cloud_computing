@@ -4,6 +4,7 @@ import * as styles from '../styles/globalStyles.js';
 import { Link } from 'gatsby';
 
 
+// Standard sujet display
 const Sujet = (props) => {
     const [isHover, setIsHover] = useState(false);
 

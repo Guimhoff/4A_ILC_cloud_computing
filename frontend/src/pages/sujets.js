@@ -26,7 +26,7 @@ const Sujets = () => {
                 setSujets(data.sujets)
             }
             if (data.error) {
-                console.log(data.error)
+                console.error(data.error)
             }
         })
     }, [])

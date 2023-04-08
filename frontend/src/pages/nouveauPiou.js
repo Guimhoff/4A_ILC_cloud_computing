@@ -43,7 +43,7 @@ const NouveauPiou = () => {
         })
         .then(data => {
             if (data.error) {
-                console.log(data.error)
+                console.error(data.error)
             }
         })
     }

@@ -3,6 +3,7 @@ import * as styles from '../styles/globalStyles.js';
 import User from './user.js';
 
 
+// Standard list of users
 const UserList = (props) => {
 
     const users = props.users

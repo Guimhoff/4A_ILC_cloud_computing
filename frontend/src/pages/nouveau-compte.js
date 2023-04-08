@@ -55,7 +55,9 @@ const NouveauComptePage = () => {
 			return response.json()
 		})
 		.then(data => {
-			console.log(data.error)
+			if (data.error) {
+				console.error(data.error)
+			}
 		})
 
 	}

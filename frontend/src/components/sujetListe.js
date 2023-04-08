@@ -2,9 +2,7 @@ import * as React from 'react';
 import * as styles from '../styles/globalStyles.js';
 import Sujet from './sujet.js'
 
-
-
-
+// Standard list of subjects
 const SujetListe = (prompt) => {
 
     const sujets = prompt.sujets

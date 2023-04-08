@@ -27,7 +27,7 @@ const DynamicPiouPage = (req, res) => {
         .then(data => {
             setPious(data.piou)
             if (data.error) {
-                console.log(data.error)
+                console.error(data.error)
             }
         })
     }, [req.params.piouId])
