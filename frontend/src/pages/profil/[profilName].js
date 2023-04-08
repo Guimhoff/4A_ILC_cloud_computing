@@ -3,15 +3,12 @@ import * as styles from '../../styles/globalStyles.js';
 import PiouList from '../../components/piouList.js';
 import GlobalLayout from '../../components/globalLayout.js';
 
-
+// Page that displays the list of pious in a profil and the global layout
 const DynamicProfilPiousPage = (req, res) => {
 
     const [pious, setPious] = React.useState(null)
 
-    console.log(req.params.profilName)
-
     React.useEffect(() => {
-
         const form = new FormData()
         form.append("token", localStorage.getItem("token"))
 
@@ -29,10 +26,13 @@ const DynamicProfilPiousPage = (req, res) => {
         })
         .then(data => {
             setPious(data.pious)
-            console.log(data)
+            if (data.error) {
+                console.log(data.error)
+            }
         })
     }, [req.params.profilName])
     
+    // Display the list of pious and global layout
     return (
         <GlobalLayout title={"👤 " + req.params.profilName}>
             <h1>👤 {req.params.profilName}</h1>

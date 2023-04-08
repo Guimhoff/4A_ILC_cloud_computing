@@ -3,14 +3,12 @@ import * as styles from '../../styles/globalStyles.js';
 import Piou from '../../components/piou.js';
 import GlobalLayout from '../../components/globalLayout.js';
 
-
+// Page that displays the given piou and the global layout
 const DynamicPiouPage = (req, res) => {
-
     const [piou, setPious] = React.useState(null)
 
-
+    // Get the piou from the backend
     React.useEffect(() => {
-
         const form = new FormData()
         form.append("token", localStorage.getItem("token"))
 
@@ -28,10 +26,13 @@ const DynamicPiouPage = (req, res) => {
         })
         .then(data => {
             setPious(data.piou)
-            console.log(data)
+            if (data.error) {
+                console.log(data.error)
+            }
         })
     }, [req.params.piouId])
     
+    // Display the piou and global layout
     return (
         <GlobalLayout title={"Piou " + req.params.piouId}>
             <h1>Piou {req.params.piouId}</h1>

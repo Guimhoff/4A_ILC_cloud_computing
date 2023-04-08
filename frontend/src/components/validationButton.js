@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { useState } from 'react'
+import * as styles from '../styles/globalStyles.js'
 
 
-
+// Standard button that can be used in the app
 const FormInput = (props) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -14,21 +15,14 @@ const FormInput = (props) => {
        setIsHover(false);
     };
 
+    // Style of the button depending on its state
     const buttonStyle = {
+        ...styles.validationButtonStyle,
         backgroundColor: isHover? '#4CAF50' : '#f2f2f2',
-        border: 'none',
         color: isHover? 'white' : 'black',
-        padding: '15px 32px',
-        textAlign: 'center',
-        textDecoration: 'none',
-        display: 'inline-block',
-        fontSize: '16px',
-        margin: '4px 2px',
-        cursor: 'pointer',
-        transition: 'background-color 0.1s ease-in-out, color 0.1s ease-in-out',
-        borderRadius: '4px',
     }
 
+    // Display the button
     return (
         <main>
         <button type="button" style={buttonStyle} 

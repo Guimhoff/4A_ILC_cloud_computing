@@ -4,13 +4,13 @@ import PiouList from '../../components/piouList.js';
 import GlobalLayout from '../../components/globalLayout.js';
 
 
-
+// Page that displays the list of pious in a sujet and the global layout
 const DynamicSujetPiousPage = (req, res) => {
 
     const [pious, setPious] = React.useState(null)
 
+    // Get all pious from the backend
     React.useEffect(() => {
-
         const form = new FormData()
         form.append("token", localStorage.getItem("token"))
 
@@ -28,10 +28,13 @@ const DynamicSujetPiousPage = (req, res) => {
         })
         .then(data => {
             setPious(data.pious)
-            console.log(data)
+            if (data.error) {
+                console.log(data.error)
+            }
         })
     }, [req.params.sujetName])
 
+    // Display the list of pious and global layout
     return (
         <GlobalLayout title={"#" + req.params.sujetName}>
             <h1>#{req.params.sujetName}</h1>

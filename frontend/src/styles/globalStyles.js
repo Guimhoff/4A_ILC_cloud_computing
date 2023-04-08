@@ -40,6 +40,22 @@ export const separatorStyles = {
     backgroundColor: "#f2f2f2",
 }
 
+export const validationButtonStyle = {
+    backgroundColor: '#f2f2f2',
+    border: 'none',
+    color: 'black',
+    padding: '15px 32px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    fontWeight: 'bold',
+    display: 'inline-block',
+    fontSize: '16px',
+    margin: '4px 2px',
+    cursor: 'pointer',
+    transition: 'background-color 0.1s ease-in-out, color 0.1s ease-in-out',
+    borderRadius: '4px',
+}
+
 // Styles for the redirect page
 export const redirectPageStyles = {
     fontFamily: "-apple-system, Roboto, sans-serif, serif",
