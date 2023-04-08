@@ -29,8 +29,10 @@ const Rechercher = () => {
             return response.json()
         })
         .then(data => {
-            console.log(data)
             setUserResults(data.users)
+            if (data.error) {
+                console.log(data.error)
+            }
         })
     }
 
@@ -48,8 +50,10 @@ const Rechercher = () => {
             return response.json()
         })
         .then(data => {
-            console.log(data)
             setTopicResults(data.sujets)
+            if (data.error) {
+                console.log(data.error)
+            }
         })
     }
 
@@ -73,8 +77,10 @@ const Rechercher = () => {
             return response.json()
         })
         .then(data => {
-            console.log(data)
             setPiouResults(data.pious)
+            if (data.error) {
+                console.log(data.error)
+            }
         })
     }
 

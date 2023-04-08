@@ -4,8 +4,8 @@ import * as styles from '../styles/globalStyles.js'
 import PiouList from '../components/piouList.js'
 import { accueilTitle } from '../globalVar/windowTitles.js'
 
+// Page that displays the list of pious and the global layout
 const Accueil = () => {
-
 
     // Get all pious from the backend
     const [pious, setPious] = React.useState(null)
@@ -27,10 +27,13 @@ const Accueil = () => {
         })
         .then(data => {
             setPious(data.pious)
-            console.log(data)
+            if (data.error) {
+                console.log(data.error)
+            }
         })
     }, [])
 
+    // Display the list of pious and global layout
     return (
         <GlobalLayout title={accueilTitle}>
             {pious ? <PiouList pious={pious}></PiouList> : <p style={styles.paragraphStyles}>Chargement...</p>}

@@ -333,3 +333,21 @@ export const divRechercheStyle = {
 }
 
 
+export const notFoundHeadingStyle = {
+    fontSize: "40px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    color: "black",
+    marginTop: "10%",
+    marginBottom: "5px",
+    border: "none",
+}
+
+export const notFoundTextStyle = {
+    fontSize: "24px",
+    fontWeight: "normal",
+    textDecoration: "none",
+    color: "black",
+    marginBottom: "5px",
+    border: "none",
+}

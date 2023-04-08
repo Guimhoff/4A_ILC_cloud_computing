@@ -23,7 +23,6 @@ const Sujets = () => {
         .then(data => {
             if (data.sujets)
             {
-                console.log(data.sujets)
                 setSujets(data.sujets)
             }
             if (data.error) {
