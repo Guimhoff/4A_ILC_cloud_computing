@@ -3,9 +3,10 @@ import * as styles from '../styles/globalStyles.js';
 import GlobalLayout from '../components/globalLayout.js'
 import ValidationButton from '../components/validationButton.js'
 
-
+// Page that allows to send a new piou
 const NouveauPiou = () => {
 
+    // Function that sends the piou to the backend
     function sendPiou() {
         console.log("sendPiou")
 
@@ -47,7 +48,7 @@ const NouveauPiou = () => {
         })
     }
 
-
+    // Display title, textarea and button
     return (
         <GlobalLayout title="💬 Nouveau Piou" nouveauPiouButton={false}>
             <main style={styles.nouveauPiouStyle}>
