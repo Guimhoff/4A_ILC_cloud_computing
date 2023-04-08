@@ -4,12 +4,12 @@ import * as styles from '../styles/globalStyles.js'
 import SujetListe from '../components/sujetListe.js'
 import { sujetsTitle } from '../globalVar/windowTitles.js'
 
-
+// Page that displays the list of sujets and allows to look at the list of pious in each sujet
 const Sujets = () => {
 
     let [sujets, setSujets] = React.useState(null)
 
-    // Get the list of topics
+    // Get the list of sujets from the backend
     React.useEffect(() => {
         fetch("http://localhost:5000/sujets")
         .then(response => {
@@ -32,7 +32,7 @@ const Sujets = () => {
         })
     }, [])
 
-
+    // Display the list of sujets and global layout
     return (
         <GlobalLayout title={sujetsTitle}>
             {sujets ? <SujetListe sujets={sujets}></SujetListe> : <p style={styles.paragraphStyles}>Chargement...</p>}
