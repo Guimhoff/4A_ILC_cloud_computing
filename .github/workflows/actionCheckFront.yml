@@ -16,4 +16,5 @@ jobs:
     - name: Linter and syntax checker
       uses: ninosaurus/eslint-check@v5
       with:
+        eslint-config-path: "./frontend/.test/.ESLintConf.json"
         custom-directory: "./frontend"
