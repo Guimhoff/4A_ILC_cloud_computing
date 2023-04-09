@@ -16,12 +16,12 @@ Certaines routes sont accessibles avec ou sans token d'identification. L'accès 
 
 * Afficher tous les pious :
 
-> [GET] /pious \
+> [GET] /pious  
 > [POST] /pious?token=\<token>
 
 * Afficher un piou :
 
-> [GET] /piou=\<id-piou> \
+> [GET] /piou=\<id-piou>  
 > [POST] /piou=\<id-piou>?token=\<token>
 
 * Enregistrer un piou dans Redis :
@@ -31,7 +31,7 @@ Certaines routes sont accessibles avec ou sans token d'identification. L'accès 
 
 * Afficher les pious attribués à une personne :
 
-> [GET] /user/\<user>/pious \
+> [GET] /user/\<user>/pious  
 > [POST] /user/\<user>/pious?token=\<token>
 
 * Retweeter :
@@ -45,7 +45,7 @@ Certaines routes sont accessibles avec ou sans token d'identification. L'accès 
 
 * Afficher les tweets liés à un sujet :
 
-> [GET] /sujet=\<sujet> \
+> [GET] /sujet=\<sujet>  
 > [POST] /sujet=\<sujet>?token=\<token>
 
 * Créer un utilisateur :
