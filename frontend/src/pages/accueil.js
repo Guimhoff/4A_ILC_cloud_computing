@@ -6,6 +6,7 @@ import { accueilTitle } from '../globalVar/windowTitles.js'
 
 // Page that displays the list of pious and the global layout
 const Accueil = () => {
+    if (typeof window === "undefined") return null;
 
     // Get all pious from the backend
     const [pious, setPious] = React.useState(null)

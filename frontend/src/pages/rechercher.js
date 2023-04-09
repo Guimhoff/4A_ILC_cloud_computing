@@ -8,6 +8,7 @@ import UserList from "../components/userList.js"
 
 // Page which allows to search for either users, topics or pious (including 3 buttons to switch between the 3)
 const Rechercher = () => {
+    if (typeof window === "undefined") return null;
 
     const [searchType, setSearchType] = React.useState("users")
     

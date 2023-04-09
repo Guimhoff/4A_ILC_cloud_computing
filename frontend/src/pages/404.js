@@ -5,6 +5,8 @@ import * as styles from "../styles/globalStyles.js"
 
 // Page displayed when the user tries to access a page that doesn't exist
 const NotFoundPage = () => {
+    if (typeof window === "undefined") return null;
+    
     return (
         <main style={styles.pageStyles}>
             <h1 style={styles.notFoundHeadingStyle}>Page introuvable</h1>

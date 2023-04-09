@@ -6,7 +6,8 @@ import GlobalLayout from '../../components/globalLayout.js';
 
 // Page that displays the list of pious in a sujet and the global layout
 const DynamicSujetPiousPage = (req, res) => {
-
+    if (typeof window === "undefined") return null;
+    
     const [pious, setPious] = React.useState(null)
 
     // Get all pious from the backend

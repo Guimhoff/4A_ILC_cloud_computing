@@ -6,6 +6,7 @@ import * as styles from "../styles/globalStyles.js"
 
 // Page to log the user in, including a form to enter his username and password, and a check "remebmer me"
 const ConnexionPage = () => {
+	if (typeof window === "undefined") return null;
 
 	// If the user is already logged in, redirect him to the home page
 	if (localStorage.getItem("token")) {

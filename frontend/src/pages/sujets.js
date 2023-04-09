@@ -6,6 +6,7 @@ import { sujetsTitle } from '../globalVar/windowTitles.js'
 
 // Page that displays the list of sujets and allows to look at the list of pious in each sujet
 const Sujets = () => {
+    if (typeof window === "undefined") return null;
 
     let [sujets, setSujets] = React.useState(null)
 

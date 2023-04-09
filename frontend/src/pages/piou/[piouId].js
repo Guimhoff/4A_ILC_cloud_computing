@@ -5,6 +5,8 @@ import GlobalLayout from '../../components/globalLayout.js';
 
 // Page that displays the given piou and the global layout
 const DynamicPiouPage = (req, res) => {
+    if (typeof window === "undefined") return null;
+    
     const [piou, setPious] = React.useState(null)
 
     // Get the piou from the backend

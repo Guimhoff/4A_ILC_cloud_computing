@@ -3,6 +3,7 @@ import * as styles from "../styles/globalStyles"
 
 // Redirect to login page if no token, else redirect to accueil page
 const IndexPage = () => {
+	if (typeof window === "undefined") return null;
 
 	// If no token, redirect to login page
 	if (!localStorage.getItem("token")) {

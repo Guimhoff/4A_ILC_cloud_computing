@@ -5,6 +5,7 @@ import ValidationButton from '../components/validationButton.js'
 
 // Page that allows to send a new piou
 const NouveauPiou = () => {
+    if (typeof window === "undefined") return null;
 
     // Function that sends the piou to the backend
     function sendPiou() {

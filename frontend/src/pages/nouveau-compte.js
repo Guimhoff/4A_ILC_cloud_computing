@@ -7,6 +7,7 @@ import * as styles from "../styles/globalStyles.js"
 
 // Page to create a new account
 const NouveauComptePage = () => {
+	if (typeof window === "undefined") return null;
 
 	// If the user is already logged in, redirect him to the home page
 	if (localStorage.getItem("token")) {

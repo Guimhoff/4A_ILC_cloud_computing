@@ -5,6 +5,7 @@ import GlobalLayout from '../../components/globalLayout.js';
 
 // Page that displays the list of pious in a profil and the global layout
 const DynamicProfilPiousPage = (req, res) => {
+    if (typeof window === "undefined") return null;
 
     const [pious, setPious] = React.useState(null)
 
