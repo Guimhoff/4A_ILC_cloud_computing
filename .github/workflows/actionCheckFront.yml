@@ -1,0 +1,20 @@
+name: Vérification de la syntaxe et de l'intégrité du frontend
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Vérification de la syntaxe et de l'intégrité du frontend
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Construction de l'image Docker
+      run: docker build -t my-frontend-image ./frontend
+    - name: Linter and syntax checker
+      uses: peaceiris/actions-eslint@v2
+      with:
+        path: ./frontend
+        args: ./
