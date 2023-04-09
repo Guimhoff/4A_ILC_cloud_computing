@@ -12,13 +12,17 @@ Les langages et technologies utilisés sont les suivants :
 
 ## Routes
 
+Certaines routes sont accessibles avec ou sans token d'identification. L'accès sans token est une version simplifiée de l'accès avec token  qui sert à tester l'API.
+
 * Afficher tous les pious :
 
-> [GET] /pious
+> [GET] /pious \
+> [POST] /pious?token=\<token>
 
 * Afficher un piou :
 
-> [GET] /piou=\<id-piou>
+> [GET] /piou=\<id-piou> \
+> [POST] /piou=\<id-piou>?token=\<token>
 
 * Enregistrer un piou dans Redis :
 
@@ -27,7 +31,8 @@ Les langages et technologies utilisés sont les suivants :
 
 * Afficher les pious attribués à une personne :
 
-> [GET] /user/\<user>/pious
+> [GET] /user/\<user>/pious \
+> [POST] /user/\<user>/pious?token=\<token>
 
 * Retweeter :
 
@@ -40,7 +45,8 @@ Les langages et technologies utilisés sont les suivants :
 
 * Afficher les tweets liés à un sujet :
 
-> [GET] /sujet=\<sujet>
+> [GET] /sujet=\<sujet> \
+> [POST] /sujet=\<sujet>?token=\<token>
 
 * Créer un utilisateur :
 
@@ -95,6 +101,14 @@ clés :  t-<token> valeur : {pseudo, login-date, stay-logged}
 clés :  p-<id-piou> valeur : {id, id-quote, text, date, pseudo-user}
 ```
 
+* Repious :
+
+```none
+clés :  r-<id-pious-quote>-rp-<pseudo-user> valeur : [id-pious]
+```
+
+Note : Un repiou crée en fait deux clés : une qui correspond à un repiou normal et vie à être affiché, et  une autre qui sert à savoir si l'utilisateur a déjà repiouté le piou.
+
 * Nombre de pious :
 
 ```none
@@ -110,6 +124,8 @@ clés :  s-<sujet> valeur : [id-pious]
 Note : requête curl pour tester les routes :
 
 ## Commandes cmd / Powershell
+
+Ces commandes doivent être lancées depuis le dossier backend.
 
 ### Commandes automatisées
 
@@ -151,7 +167,7 @@ Note : requête curl pour tester les routes :
 
 > docker run --name piouteur-api -p 5000:5000 -d piouteur-api
 
-## Exemples de requêtes
+## Exemples de requêtes pour tester l'API
 
 > curl -X POST <http://localhost:5000/new-user> -d "pseudo=Mindeufair&password=1234"  
 > curl -X POST <http://localhost:5000/login> -d "pseudo=Mindeufair&password=1234"  
