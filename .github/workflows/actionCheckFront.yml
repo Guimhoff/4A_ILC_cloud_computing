@@ -18,3 +18,4 @@ jobs:
       with:
         eslint-config-path: "./frontend/.test/.ESLintConf.json"
         custom-directory: "./frontend"
+        repo-token: ${{secrets.GITHUB_TOKEN}}
