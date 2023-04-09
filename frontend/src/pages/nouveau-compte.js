@@ -78,7 +78,7 @@ const NouveauComptePage = () => {
 
 				<ValidationButton title="Créer mon compte !" idBouton="createAccount" onClickButton={createAccount} />
 			</section>
-			<hr style={styles.separatorStyles}/>$
+			<hr style={styles.separatorStyles}/>
 			<p>
 				Vous avez déjà un compte ? <Link to="/connexion">Connectez-vous</Link>.
 			</p>
