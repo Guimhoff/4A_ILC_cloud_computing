@@ -32,9 +32,10 @@ def findHost():
         host = "localhost"
         redis.Redis(host=host, port=6379, db=0).ping()
 
-    r_users = redis.Redis(host=host, port=6379, db=0)
-    r_pious = redis.Redis(host=host, port=6379, db=1)
-    r_sujets = redis.Redis(host=host, port=6379, db=2)
+    r_users = redis.Redis(host=host, port=6379, db=0, health_check_interval=30)
+    r_pious = redis.Redis(host=host, port=6379, db=1, health_check_interval=30)
+    r_sujets = redis.Redis(
+        host=host, port=6379, db=2, health_check_interval=30)
 
     return
 
