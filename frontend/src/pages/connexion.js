@@ -10,7 +10,7 @@ const ConnexionPage = () => {
 
 	// If the user is already logged in, redirect him to the home page
 	if (localStorage.getItem("token")) {
-		window.location.href = "http://localhost:8000/accueil"
+		window.location.href = "/accueil"
 	}
 
 	// Function to log the user in
@@ -41,7 +41,7 @@ const ConnexionPage = () => {
 				// Save the token and the username in the local storage and redirect the user to the home page
 				localStorage.setItem('token', data.token)
 				localStorage.setItem('username', username)
-				window.location.href = 'http://localhost:8000/accueil'
+				window.location.href = '/accueil'
 			}
 			if (data.error) {
 				console.error(data.error)

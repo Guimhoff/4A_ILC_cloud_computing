@@ -11,7 +11,7 @@ const NouveauComptePage = () => {
 
 	// If the user is already logged in, redirect him to the home page
 	if (localStorage.getItem("token")) {
-		window.location.href = "http://localhost:8000/accueil"
+		window.location.href = "/accueil"
 	}
 
 	// Function to create a new account
@@ -49,7 +49,7 @@ const NouveauComptePage = () => {
 		.then(response => {
 			if (response.status === 200) {
 				alert("Compte créé !")
-				window.location.href = 'http://localhost:8000/connexion'
+				window.location.href = '/connexion'
 			} else {
 				alert("Erreur lors de la création du compte.")
 			}
