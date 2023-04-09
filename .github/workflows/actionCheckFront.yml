@@ -16,5 +16,4 @@ jobs:
     - name: Linter and syntax checker
       uses: peaceiris/actions-eslint@v2
       with:
-        path: ./frontend
-        args: ./
+        custom-directory: "./frontend"
