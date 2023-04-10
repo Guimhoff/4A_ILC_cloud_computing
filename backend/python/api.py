@@ -6,6 +6,7 @@ import logging
 import api_pious
 import api_sujets
 import api_users
+import api_demo
 
 
 logging.basicConfig(level=logging.DEBUG,
@@ -162,6 +163,11 @@ def adminDeleteUser():
 @app.route("/admin-get-users", methods=['POST'])
 def adminGetUsers():
     return api_users.adminGetUsers()
+
+
+@app.route("/demo", methods=['POST'])
+def postDemo():
+    return api_demo.postDemo()
 
 
 if __name__ == '__main__':

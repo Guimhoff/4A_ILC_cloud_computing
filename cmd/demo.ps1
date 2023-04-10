@@ -11,4 +11,5 @@ docker run --name piouteur-api -p 5000:5000 -d piouteur-api
 Set-Location ../frontend
 docker build -t piouteur-front .
 docker run --name piouteur-front -p 80:80 -d piouteur-front
+curl.exe -X POST http://localhost:5000/demo
 cd ..
