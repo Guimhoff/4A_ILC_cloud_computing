@@ -130,52 +130,43 @@ Ces commandes doivent être lancées depuis le dossier backend.
 ### Commandes automatisées
 
 * Lancer le script de montage et démarrage des conteneurs
-
-> .\cmd\build_and_run_all.ps1
+    > `.\cmd\build_and_run_all.ps1`
 
 * Lancer le script de démarrage des conteneurs
-
-> .\cmd\run_all.ps1
+    > `.\cmd\start_all.ps1`
 
 * Lancer le script d'arrêt des conteneurs
-
-> .\cmd\stop_all.ps1
+    > `.\cmd\stop_all.ps1`
 
 * Lancer le script de suppression des conteneurs
-
-> .\cmd\rm_all.ps1
+    > `.\cmd\rm_all.ps1`
 
 * Lancer le script de réinitialisation de la base de données
-
-> .\cmd\clean_redis.ps1
+    > `.\cmd\clean_redis.ps1`
 
 * Lancer le script de montage et démarrage de l'API (avec suppression d'une ancienne API si nécessaire)
-
-> .\cmd\build_and_run_api.ps1
+    > `.\cmd\build_and_run_api.ps1`
 
 ### Commandes manuelles
 
 * Lancer Reddis
-
-> docker run --name piouteur-redis -p 6379:6379 -d redis
+    > `docker run --name piouteur-redis -p 6379:6379 -d redis`
 
 * Construire l'image de l'API
-
-> docker build -t piouteur-api .
+    > `docker build -t piouteur-api .`
 
 * Lancer le conteneur de l'API
-
-> docker run --name piouteur-api -p 5000:5000 -d piouteur-api
+    > `docker run --name piouteur-api -p 5000:5000 -d piouteur-api`
 
 ## Exemples de requêtes pour tester l'API
 
-> curl -X POST <http://localhost:5000/new-user> -d "pseudo=Mindeufair&password=1234"  
-> curl -X POST <http://localhost:5000/login> -d "pseudo=Mindeufair&password=1234"  
-> curl -X POST <http://localhost:5000/piouter> -d "token=\<token>&text=Salut c'est Guillaume ! #Bonjour"  
-> curl -X POST <http://localhost:5000/repiouter> -d "token=\<token>&id-piou=1"  
-> curl -X GET <http://localhost:5000/pious>  
-> curl -X GET <http://localhost:5000/piou=1>  
-> curl -X GET <http://localhost:5000/piou=2>  
-> curl -X GET <http://localhost:5000/sujets>  
-> curl -X GET <http://localhost:5000/sujet=Bonjour>  
-> curl -X GET <http://localhost:5000/user/Mindeufair/pious>  
+> `curl -X POST http://localhost:5000/new-user -d "pseudo=Mindeufair&password=1234"`  
+> `curl -X POST http://localhost:5000/login -d "pseudo=Mindeufair&password=1234"`  
+> `curl -X POST http://localhost:5000/piouter -d "token=\<token>&text=Salut c'est Guillaume ! #Bonjour"`  
+> `curl -X POST http://localhost:5000/repiouter -d "token=\<token>&id-piou=1"`  
+> `curl -X GET http://localhost:5000/pious`  
+> `curl -X GET http://localhost:5000/piou=1`  
+> `curl -X GET http://localhost:5000/piou=2`  
+> `curl -X GET http://localhost:5000/sujets`  
+> `curl -X GET http://localhost:5000/sujet=Bonjour`  
+> `curl -X GET http://localhost:5000/user/Mindeufair/pious`  
