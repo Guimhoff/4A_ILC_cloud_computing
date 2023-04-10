@@ -29,7 +29,20 @@ Les langages et technologies utilisés sont les suivants :
 
 TODO
 
+## Commandes cmd / powershell
+
+* Construire et monter tous les conteneurs :
+    > `.\cmd\build_and_mount_all.ps1`
+
+* Démarrer tous les conteneurs :
+    > `.\cmd\start_all.ps1`
+
+* Arrêter tous les conteneurs :
+    > `.\cmd\stop_all.ps1`
+
+* Supprimer tous les conteneurs :
+    > `.\cmd\rm_all.ps1`
+
 ## Déroulé du projet
 
 TODO
-
