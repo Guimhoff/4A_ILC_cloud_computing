@@ -27,15 +27,18 @@ def findHost():
 
     host = "gateway.docker.internal"
     try:
-        redis.Redis(host=host, port=6379, db=0).ping()
+        temp = redis.Redis(host=host, port=6379, db=0)
+        temp.ping()
+        temp.close()
     except redis.exceptions.ConnectionError:
         host = "localhost"
-        redis.Redis(host=host, port=6379, db=0).ping()
 
-    r_users = redis.Redis(host=host, port=6379, db=0, health_check_interval=30)
-    r_pious = redis.Redis(host=host, port=6379, db=1, health_check_interval=30)
-    r_sujets = redis.Redis(
-        host=host, port=6379, db=2, health_check_interval=30)
+    r_users = redis.Redis(host=host, port=6379, db=0,
+                          health_check_interval=10, socket_keepalive=True)
+    r_pious = redis.Redis(host=host, port=6379, db=1,
+                          health_check_interval=10, socket_keepalive=True)
+    r_sujets = redis.Redis(host=host, port=6379, db=2,
+                           health_check_interval=10, socket_keepalive=True)
 
     return
 
