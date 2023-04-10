@@ -46,10 +46,10 @@ def postPious():
 
 
 def buildQuote(id, pseudo):
-    if not api.r_pious.exists("p-" + id):
+    if not api.r_pious.exists("p-" + str(id)):
         return make_response(jsonify({"error": "Piou not found"}), 404)
 
-    piou = json.loads(api.r_pious.get("p-" + id).decode())
+    piou = json.loads(api.r_pious.get("p-" + str(id)).decode())
     quote = {
         "id": piou["id"],
         "pseudo-user": piou["pseudo-user"],
