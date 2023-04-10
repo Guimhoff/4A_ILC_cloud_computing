@@ -73,6 +73,12 @@ Cette page affiche les pious du sujet passé en paramètre.
 
 Cette page permet de rechercher des pious, des utilisateurs ou des sujets. L'utilisateur doit renseigner un terme de recherche et valider. Le terme de recherche doit contenir au moins 1 caractère. L'utilisateur peut choisir de rechercher des pious, des utilisateurs ou des sujets à l'aide de 3 boutons.
 
+## Vidéo
+
+Une image vallant mille mots, et une vidéo mille images, voici une vidéo de démonstration du site :
+
+[![Vidéo de démonstration](https://img.youtube.com/vi/uxNJtbnHAMY/0.jpg)](https://youtu.be/uxNJtbnHAMY)
+
 ## Commandes cmd / powershell
 
 * Construire et monter le container avec le cache :
