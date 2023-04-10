@@ -34,17 +34,36 @@ def findHost():
     except redis.exceptions.ConnectionError:
         host = "localhost"
 
-    r_users = redis.Redis(host=host, port=6379, db=0,
-                          health_check_interval=10, socket_keepalive=True)
-    r_pious = redis.Redis(host=host, port=6379, db=1,
-                          health_check_interval=10, socket_keepalive=True)
-    r_sujets = redis.Redis(host=host, port=6379, db=2,
-                           health_check_interval=10, socket_keepalive=True)
+    r_users = redis.Redis(host=host, port=6379, db=0)
+    r_pious = redis.Redis(host=host, port=6379, db=1)
+    r_sujets = redis.Redis(host=host, port=6379, db=2)
+
+    return
+
+
+def reviveHost():
+    global r_users, r_pious, r_sujets
+
+    try:
+        r_users.ping()
+        r_pious.ping()
+        r_sujets.ping()
+    except redis.exceptions.ConnectionError:
+        reviveHost()
 
     return
 
 
 findHost()
+
+
+@app.before_request
+def before_request():
+    # Méthode un peu bourrin qui va avec un peu de chance
+    # empêcher les erreurs intempestives de connexion à redis
+    global r_users, r_pious, r_sujets
+
+    reviveHost()
 
 # Gestions pious
 
